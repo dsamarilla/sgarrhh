@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="rhrl_persona")
 public class Persona implements Serializable{
 	/**
-	 * 
+	 * hola
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
