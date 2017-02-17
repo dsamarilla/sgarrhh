@@ -2,7 +2,7 @@ package com.entidad;
 
 import java.util.Date;
 
-public class DescuentoDetalle {
+public class Descuento {
 	
 	private Integer numero;
 	private TipoDescuento codigoTipoDescuento;
@@ -13,7 +13,7 @@ public class DescuentoDetalle {
 	private String observacion;
 	
 		
-	public DescuentoDetalle() {
+	public Descuento() {
 		super();
 		this.numero = 0;
 		this.codigoTipoDescuento = new TipoDescuento();
@@ -25,7 +25,7 @@ public class DescuentoDetalle {
 	}
 
 
-	public DescuentoDetalle(Integer numero, TipoDescuento codigoTipoDescuento, Double monto,
+	public Descuento(Integer numero, TipoDescuento codigoTipoDescuento, Double monto,
 			Persona codigoPersona, String estado, Date fecha, String observacion) {
 		super();
 		this.numero = numero;
@@ -124,7 +124,7 @@ public class DescuentoDetalle {
 
 	@Override
 	public String toString() {
-		return "BonificacionDetalle [numero=" + numero + ", codigoTipoDescuento=" + codigoTipoDescuento
+		return "Bonificacion [numero=" + numero + ", codigoTipoDescuento=" + codigoTipoDescuento
 				+ ", monto=" + monto + ", codigoPersona=" + codigoPersona + ", estado=" + estado + ", fecha=" + fecha
 				+ ", observacion=" + observacion + "]";
 	}

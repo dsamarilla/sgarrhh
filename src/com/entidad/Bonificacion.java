@@ -1,20 +1,46 @@
 package com.entidad;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BonificacionDetalle {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="rhlq_bonificacion")
+public class Bonificacion implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="bod_num")
 	private Integer numero;
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="bod_codtpbon")
 	private TipoBonificacion codigoTipoBonificacion;
+	@Id
+	@Column(name="bod_monto")
 	private Double monto;
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="bod_codper")
 	private Persona codigoPersona;
+	@Id
+	@Column(name="bod_estado")
 	private String estado;
+	@Id
+	@Column(name="bod_fechahora")
 	private Date fecha;
+	@Id
+	@Column(name="bod_obs")
 	private String observacion;
 	
-	
-	
-	public BonificacionDetalle() {
+		
+	public Bonificacion() {
 		super();
 		this.numero = 0;
 		this.codigoTipoBonificacion = new TipoBonificacion();
@@ -27,7 +53,7 @@ public class BonificacionDetalle {
 
 
 
-	public BonificacionDetalle(Integer numero, TipoBonificacion codigoTipoBonificacion, Double monto,
+	public Bonificacion(Integer numero, TipoBonificacion codigoTipoBonificacion, Double monto,
 			Persona codigoPersona, String estado, Date fecha, String observacion) {
 		super();
 		this.numero = numero;
@@ -127,7 +153,7 @@ public class BonificacionDetalle {
 
 	@Override
 	public String toString() {
-		return "BonificacionDetalle [numero=" + numero + ", codigoTipoBonificacion=" + codigoTipoBonificacion
+		return "Bonificacion [numero=" + numero + ", codigoTipoBonificacion=" + codigoTipoBonificacion
 				+ ", monto=" + monto + ", codigoPersona=" + codigoPersona + ", estado=" + estado + ", fecha=" + fecha
 				+ ", observacion=" + observacion + "]";
 	}
