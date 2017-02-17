@@ -1,15 +1,32 @@
 package com.entidad;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Liquidacion {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+public class Liquidacion implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@Column(name="liq_nro")
 	private Integer numero;
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="liq_codper")
 	private Persona codigoPersona;
+	@Column(name="liq_fecha")
 	private Date fecha;
+	@Column(name="liq_monto")
 	private Double monto;
+	@Column(name="liq_obs")
 	private String observacion;
-	private Concepto codigoConcepto;
 	
 	public Liquidacion() {
 		super();
@@ -18,18 +35,15 @@ public class Liquidacion {
 		this.fecha = new Date ();
 		this.monto = new Double(0);
 		this.observacion = "";
-		this.codigoConcepto = new Concepto();
 	}
 
-	public Liquidacion(Integer numero, Persona codigoPersona, Date fecha, Double monto, String observacion,
-			Concepto codigoConcepto) {
+	public Liquidacion(Integer numero, Persona codigoPersona, Date fecha, Double monto, String observacion) {
 		super();
 		this.numero = numero;
 		this.codigoPersona = codigoPersona;
 		this.fecha = fecha;
 		this.monto = monto;
 		this.observacion = observacion;
-		this.codigoConcepto = codigoConcepto;
 	}
 
 	public Integer getNumero() {
@@ -72,18 +86,12 @@ public class Liquidacion {
 		this.observacion = observacion;
 	}
 
-	public Concepto getCodigoConcepto() {
-		return codigoConcepto;
-	}
 
-	public void setCodigoConcepto(Concepto codigoConcepto) {
-		this.codigoConcepto = codigoConcepto;
-	}
 
 	@Override
 	public String toString() {
 		return "Liquidacion [numero=" + numero + ", codigoPersona=" + codigoPersona + ", fecha=" + fecha + ", monto="
-				+ monto + ", observacion=" + observacion + ", codigoConcepto=" + codigoConcepto + "]";
+				+ monto + ", observacion=" + observacion + "]";
 	}
 
 	

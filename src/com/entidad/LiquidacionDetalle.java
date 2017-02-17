@@ -3,6 +3,7 @@ package com.entidad;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -17,6 +18,7 @@ public class LiquidacionDetalle implements Serializable{
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="lqd_nroliquidacion")
 	private Liquidacion numeroLiquidacion;
+	@Column(name="lqd_montoparcial")
 	private Double montoParcial;
 	public LiquidacionDetalle() {
 		super();

@@ -12,7 +12,8 @@ import javax.persistence.Table;
 public class Concepto {
 	@Id
 	@Column(name="cot_cod")
-	@OneToMany(mappedBy="liquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="liquidaciondetalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+
 	private Integer codigo;
 	@Column(name="cot_des")
 	private String descripcion;
