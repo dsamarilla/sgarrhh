@@ -7,6 +7,11 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		<class>com.entidad.Concepto</class>
 		<class>com.entidad.Persona</class>
 		<class>com.entidad.TipoDocumento</class>
+		<class>com.entidad.Liquidacion</class>
+		<class>com.entidad.Haber</class>
+		<class>com.entidad.HaberDetalle</class>
+		<class>com.entidad.Bonificacion</class>
+		<class>com.entidad.Descuento</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sgrrhh_db" />
