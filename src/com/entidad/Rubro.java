@@ -1,8 +1,28 @@
 package com.entidad;
 
-public class Rubro {
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="hab_codrubro")
+public class Rubro implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	
+	@Column(name="rub_cod")
+	@OneToMany
+	(mappedBy="Haber", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	
 	private Integer codigo;
+	@Column(name="rub_des")
 	private String descripcion;
+	
 	public Rubro() {
 		super();
 		this.codigo = 0;
