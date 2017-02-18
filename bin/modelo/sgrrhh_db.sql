@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2017 a las 03:45:11
+-- Tiempo de generación: 18-02-2017 a las 19:36:09
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -86,7 +86,7 @@ INSERT INTO `rhco_tipobonificacion` (`tbon_cod`, `tbon_des`, `tbon_porcentaje`) 
 --
 
 CREATE TABLE IF NOT EXISTS `rhco_tipodescuento` (
-  `tdes_nro` int(15) NOT NULL COMMENT 'Numero',
+  `tdes_cod` int(15) NOT NULL COMMENT 'Codigo',
   `tdes_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `tdes_porcentaje` varchar(3) COLLATE utf8_bin NOT NULL COMMENT 'Porcentaje'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Descuentos';
@@ -307,6 +307,7 @@ CREATE TABLE IF NOT EXISTS `rhlq_haber` (
 
 CREATE TABLE IF NOT EXISTS `rhlq_haber_detalle` (
   `had_nro` int(15) NOT NULL COMMENT 'Numero',
+  `had_nrohaber` int(15) NOT NULL COMMENT 'Numero del Haber',
   `had_codconcep` int(15) NOT NULL COMMENT 'Codigo Concepto',
   `had_nroliq` int(15) NOT NULL COMMENT 'Numero de Liquidacion',
   `had_coddescue` int(15) DEFAULT NULL COMMENT 'Codigo del Descuento',
@@ -342,6 +343,7 @@ INSERT INTO `rhlq_liquidacion` (`liq_nro`, `liq_fecha`, `liq_monto`, `liq_codper
 --
 
 CREATE TABLE IF NOT EXISTS `rhlq_liquidacion_detalle` (
+  `lqd_id` int(15) NOT NULL COMMENT 'ID',
   `lqd_codconcepto` int(11) NOT NULL COMMENT 'código de concepto',
   `lqd_nroliquidacion` int(11) NOT NULL,
   `lqd_montoparcial` decimal(12,4) NOT NULL
@@ -697,7 +699,7 @@ ALTER TABLE `rhco_tipobonificacion`
 -- Indices de la tabla `rhco_tipodescuento`
 --
 ALTER TABLE `rhco_tipodescuento`
-  ADD PRIMARY KEY (`tdes_nro`);
+  ADD PRIMARY KEY (`tdes_cod`);
 
 --
 -- Indices de la tabla `rhco_tipodocumento`
@@ -773,7 +775,8 @@ ALTER TABLE `rhlq_bonificacion`
 --
 ALTER TABLE `rhlq_descuento`
   ADD PRIMARY KEY (`deb_num`),
-  ADD KEY `deb_codtpdes` (`deb_codtpdes`,`deb_codper`);
+  ADD KEY `deb_codtpdes` (`deb_codtpdes`,`deb_codper`),
+  ADD KEY `deb_codper` (`deb_codper`);
 
 --
 -- Indices de la tabla `rhlq_haber`
@@ -790,7 +793,8 @@ ALTER TABLE `rhlq_haber_detalle`
   ADD KEY `had_codconcep` (`had_codconcep`,`had_nroliq`,`had_coddescue`,`had_codboni`),
   ADD KEY `rhlq_haber_detalle_liquidacion` (`had_nroliq`),
   ADD KEY `rhlq_haber_detalle_descuento` (`had_coddescue`),
-  ADD KEY `rhlq_haber_detalle_bonificacion` (`had_codboni`);
+  ADD KEY `rhlq_haber_detalle_bonificacion` (`had_codboni`),
+  ADD KEY `had_nrohaber` (`had_nrohaber`);
 
 --
 -- Indices de la tabla `rhlq_liquidacion`
@@ -803,6 +807,7 @@ ALTER TABLE `rhlq_liquidacion`
 -- Indices de la tabla `rhlq_liquidacion_detalle`
 --
 ALTER TABLE `rhlq_liquidacion_detalle`
+  ADD PRIMARY KEY (`lqd_id`),
   ADD KEY `lqd_nroliquidacion` (`lqd_nroliquidacion`),
   ADD KEY `lqd_codconcepto` (`lqd_codconcepto`);
 
@@ -912,7 +917,7 @@ ALTER TABLE `rhco_tipobonificacion`
 -- AUTO_INCREMENT de la tabla `rhco_tipodescuento`
 --
 ALTER TABLE `rhco_tipodescuento`
-  MODIFY `tdes_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero';
+  MODIFY `tdes_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo';
 --
 -- AUTO_INCREMENT de la tabla `rhco_tipodocumento`
 --
@@ -983,6 +988,11 @@ ALTER TABLE `rhlq_haber_detalle`
 --
 ALTER TABLE `rhlq_liquidacion`
   MODIFY `liq_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `rhlq_liquidacion_detalle`
+--
+ALTER TABLE `rhlq_liquidacion_detalle`
+  MODIFY `lqd_id` int(15) NOT NULL AUTO_INCREMENT COMMENT 'ID';
 --
 -- AUTO_INCREMENT de la tabla `rhrl_cargo`
 --
@@ -1062,6 +1072,13 @@ ALTER TABLE `rhlq_bonificacion`
   ADD CONSTRAINT `rhlq_bonificacion_ibfk_2` FOREIGN KEY (`bod_codper`) REFERENCES `rhrl_persona` (`per_cod`);
 
 --
+-- Filtros para la tabla `rhlq_descuento`
+--
+ALTER TABLE `rhlq_descuento`
+  ADD CONSTRAINT `rhlq_descuento_ibfk_1` FOREIGN KEY (`deb_codtpdes`) REFERENCES `rhco_tipodescuento` (`tdes_cod`),
+  ADD CONSTRAINT `rhlq_descuento_ibfk_2` FOREIGN KEY (`deb_codper`) REFERENCES `rhrl_persona` (`per_cod`);
+
+--
 -- Filtros para la tabla `rhlq_haber`
 --
 ALTER TABLE `rhlq_haber`
@@ -1074,6 +1091,7 @@ ALTER TABLE `rhlq_haber_detalle`
   ADD CONSTRAINT `rhlq_haber_detalle_bonificacion` FOREIGN KEY (`had_codboni`) REFERENCES `rhlq_bonificacion` (`bod_num`),
   ADD CONSTRAINT `rhlq_haber_detalle_concepto` FOREIGN KEY (`had_codconcep`) REFERENCES `rhco_concepto` (`cot_cod`),
   ADD CONSTRAINT `rhlq_haber_detalle_descuento` FOREIGN KEY (`had_coddescue`) REFERENCES `rhlq_descuento` (`deb_num`),
+  ADD CONSTRAINT `rhlq_haber_detalle_ibfk_1` FOREIGN KEY (`had_nrohaber`) REFERENCES `rhlq_haber` (`hab_nro`),
   ADD CONSTRAINT `rhlq_haber_detalle_liquidacion` FOREIGN KEY (`had_nroliq`) REFERENCES `rhlq_liquidacion` (`liq_nro`);
 
 --
