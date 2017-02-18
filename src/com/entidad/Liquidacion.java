@@ -47,7 +47,7 @@ public class Liquidacion implements Serializable{
 		this.observacion = "";
 	}
 
-	public Liquidacion(Integer numero, Persona codigoPersona, Date fecha, Double monto, String observacion) {
+	public Liquidacion(Integer numero, Date fecha, Double monto,Persona codigoPersona, String observacion) {
 		super();
 		this.numero = numero;
 		this.codigoPersona = codigoPersona;

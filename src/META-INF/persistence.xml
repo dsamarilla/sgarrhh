@@ -18,9 +18,13 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		<class>com.entidad.Contrato</class>
 		<class>com.entidad.Rubro</class>
 		<class>com.entidad.Salario</class>
+		<class>com.entidad.Funcion</class>
+	    <class>com.entidad.Cargo</class>
+	    <class>com.entidad.Departamento</class>
+	    <class>com.entidad.TipoDocumento</class>
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sgrrhh_db" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sgrrhh_db"/>
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="eclipselink.logging.level.sql" value="ALL"/>

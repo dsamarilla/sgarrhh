@@ -37,15 +37,26 @@ public class LiquidacionDetalle implements Serializable{
 	
 	public LiquidacionDetalle() {
 		super();
+		this.idLiquidacionDetalle =0;
 		this.codigoConcepto = new Concepto();
 		this.numeroLiquidacion = new Liquidacion();
 		this.montoParcial = new Double(0);
 	}
-	public LiquidacionDetalle(Concepto codigoConcepto, Liquidacion numeroLiquidacion, Double montoParcial) {
+	public LiquidacionDetalle(Integer idLiquidacionDetalle, Concepto codigoConcepto, Liquidacion numeroLiquidacion, Double montoParcial) {
 		super();
+		this.idLiquidacionDetalle = idLiquidacionDetalle;
 		this.codigoConcepto = codigoConcepto;
 		this.numeroLiquidacion = numeroLiquidacion;
 		this.montoParcial = montoParcial;
+		
+	}
+	
+	
+	public Integer getIdLiquidacionDetalle() {
+		return idLiquidacionDetalle;
+	}
+	public void setIdLiquidacionDetalle(Integer idLiquidacionDetalle) {
+		this.idLiquidacionDetalle = idLiquidacionDetalle;
 	}
 	public Concepto getCodigoConcepto() {
 		return codigoConcepto;
