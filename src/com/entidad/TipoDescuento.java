@@ -1,7 +1,11 @@
 package com.entidad;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 public class TipoDescuento {
-	
+	@Id
+	@Column(name="deb_num")
 	private Integer codigo;
 	private String descripcion;
 	private Float porcentaje;

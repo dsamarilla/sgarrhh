@@ -12,8 +12,6 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		<class>com.entidad.HaberDetalle</class>
 		<class>com.entidad.Bonificacion</class>
 		<class>com.entidad.Descuento</class>
-		<class>com.entidad.TipoDescuento</class>
-		<class>com.entidad.TipoBonificacion</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sgrrhh_db" />

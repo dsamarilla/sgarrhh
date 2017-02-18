@@ -2,12 +2,8 @@ package com.entidad;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 public class Descuento {
-	@Id
-	@Column(name="deb_num")
+	
 	private Integer numero;
 	private TipoDescuento codigoTipoDescuento;
 	private Double monto;
