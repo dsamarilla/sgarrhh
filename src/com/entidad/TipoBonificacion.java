@@ -17,7 +17,7 @@ public class TipoBonificacion {
 	@Column(name="tbon_cod")
 	private Integer codigo;
 	
-	@OneToMany(mappedBy="bonificacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoTipoBonificacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Bonificacion> bonificacion;
 	
 	@Column(name="tbon_des")

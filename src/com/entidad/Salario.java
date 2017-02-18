@@ -16,10 +16,13 @@ public class Salario {
 	@Column(name="sal_cod")
 	private Integer codigo;
 	
-	@OneToMany(mappedBy="contrato", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codSalario", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Contrato> contrato;
 		
+	@Column(name="sal_des")
 	private String descripcion;
+	
+	@Column(name="sal_monto")
 	private Double monto;
 	
 	public Salario() {

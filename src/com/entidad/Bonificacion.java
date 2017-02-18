@@ -1,6 +1,7 @@
 package com.entidad;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -22,6 +23,9 @@ public class Bonificacion implements Serializable {
 	@Column(name="bod_num")
 	@OneToMany(mappedBy="HaberDetalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Integer numero;
+	
+	@OneToMany(mappedBy="codigoBonificacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<HaberDetalle> Haberdetalle;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="bod_codtpbon")

@@ -19,7 +19,7 @@ public class Descuento {
 	@Column(name="deb_num")
 	private Integer numero;
 	
-	@OneToMany(mappedBy="haber_detalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoDescuento", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<HaberDetalle> haberdetalle;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})

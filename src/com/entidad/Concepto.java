@@ -16,11 +16,11 @@ public class Concepto {
 	@Column(name="cot_cod")
 	private Integer codigo;
 	
-	@OneToMany(mappedBy="liquidacion_detalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoConcepto", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<LiquidacionDetalle> liquidaciondetalle;
 	
 	
-	@OneToMany(mappedBy="haber_detalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoConcepto", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<HaberDetalle> haberdetalle;
 	
 	

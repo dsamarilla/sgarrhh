@@ -7,7 +7,11 @@ public class TipoDescuento {
 	@Id
 	@Column(name="deb_num")
 	private Integer codigo;
+	
+	@Column(name="tdes_des")
 	private String descripcion;
+	
+	@Column(name="tdes_porcentaje")
 	private Float porcentaje;
 	
 	public TipoDescuento() {
