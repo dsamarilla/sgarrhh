@@ -1,23 +1,47 @@
 package com.entidad;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="rhrl_cargo")
 public class Cargo {
+	
+	@Id
+	@Column(name="car_cod")
 	private Integer codigo;
+	
+	@Column(name="car_des")
 	private String descripcion;
-	private Funcion funcion;
-	private Departamento departamento;
+
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="car_codfun")
+	private Funcion codigoFuncion;
+
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="codigoDepartamento")
+	private Departamento codigoDepartamento;
+	
+	
+	
 	public Cargo() {
 		super();
 		this.codigo = 0;
 		this.descripcion = "";	
-		this.funcion=new Funcion();
-		this.departamento=new Departamento();
+		this.codigoFuncion=new Funcion();
+		this.codigoDepartamento=new Departamento();
 		}
 	public Cargo(Integer codigo, String descripcion,Funcion funcion,Departamento departamento) {
 		super();
 		this.codigo = codigo;
 		this.descripcion = descripcion;
-		this.funcion=funcion;
-		this.departamento=departamento;
+		this.codigoFuncion=funcion;
+		this.codigoDepartamento=departamento;
 	}
 	public Integer getCodigo() {
 		return codigo;
@@ -34,16 +58,16 @@ public class Cargo {
 	
 	
 	public Funcion getFuncion() {
-		return funcion;
+		return codigoFuncion;
 	}
 	public void setFuncion(Funcion funcion) {
-		this.funcion = funcion;
+		this.codigoFuncion = funcion;
 	}
 	public Departamento getDepartamento() {
-		return departamento;
+		return codigoDepartamento;
 	}
 	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
+		this.codigoDepartamento = departamento;
 	}
 	@Override
 	public String toString() {

@@ -14,10 +14,13 @@ public class TipoDocumento {
 	@Id
 	@Column(name="tdo_cod")
 	//bi-directional many-to-one association to Pedido
+	
 	@OneToMany(mappedBy="persona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Integer codigo;
+	
 	@Column(name="tdo_des")
 	private String descripcion;
+	
 	public TipoDocumento() {
 		super();
 		this.codigo = 0;

@@ -25,7 +25,7 @@ public class Contrato {
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="con_codper")
-	private Persona codPersona;
+	private Persona codigoPersona;
 	
 	private Cargo codCargo;
 	private Date fechaIngreso;
@@ -34,7 +34,7 @@ public class Contrato {
 		this.numero = 0;
 		this.descripcion = "";
 		this.codSalario = new Salario();
-		this.codPersona = new Persona();
+		this.codigoPersona = new Persona();
 		this.codCargo = new Cargo();
 		this.fechaIngreso = new Date();	}
 
@@ -44,7 +44,7 @@ public class Contrato {
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.codSalario = codSalario;
-		this.codPersona = codPersona;
+		this.codigoPersona = codPersona;
 		this.codCargo = codCargo;
 		this.fechaIngreso = fechaIngreso;
 	}
@@ -74,11 +74,11 @@ public class Contrato {
 	}
 
 	public Persona getCodPersona() {
-		return codPersona;
+		return codigoPersona;
 	}
 
 	public void setCodPersona(Persona codPersona) {
-		this.codPersona = codPersona;
+		this.codigoPersona = codPersona;
 	}
 
 	public Cargo getCodCargo() {
@@ -99,7 +99,7 @@ public class Contrato {
 
 	@Override
 	public String toString() {
-		return "Contrato [numero=" + numero + ", descripcion=" + descripcion + ", codPersona=" + codPersona
+		return "Contrato [numero=" + numero + ", descripcion=" + descripcion + ", codPersona=" + codigoPersona
 				+ ", codCargo=" + codCargo + ", fechaIngreso=" + fechaIngreso + "]";
 	}
 

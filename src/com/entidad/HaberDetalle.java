@@ -28,6 +28,10 @@ public class HaberDetalle implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	
+	@Id
+	@Column(name="had_nro")
+	private Integer numero;
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="had_nro")
 	private Haber numeroHaber;

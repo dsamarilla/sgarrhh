@@ -25,7 +25,7 @@ public class Liquidacion implements Serializable{
 	@Column(name="liq_nro")
 	private Integer numero;
 	
-	@OneToMany(mappedBy="lqd_nroliquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="numeroLiquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<LiquidacionDetalle> liquidaciondetalle;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})

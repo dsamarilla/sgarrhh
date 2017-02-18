@@ -1,12 +1,23 @@
 package com.entidad;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="rhco_tipodescuento")
 public class TipoDescuento {
 	@Id
-	@Column(name="deb_num")
+	@Column(name="tdes_cod")
 	private Integer codigo;
+	
+		
+	@OneToMany(mappedBy="tipoDescuento", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<Descuento> descuento;
 	
 	@Column(name="tdes_des")
 	private String descripcion;

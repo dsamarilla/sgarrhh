@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,14 +19,19 @@ public class LiquidacionDetalle implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="lqd_codconcepto")
-	private Concepto codigoConcepto;
+	@Id
+	@Column(name="lqd_id")
+	private Integer idLiquidacionDetalle;
+	
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="lqd_nroliquidacion")
 	private Liquidacion numeroLiquidacion;
 	
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="lqd_codconcepto")
+	private Concepto codigoConcepto;
+
 	@Column(name="lqd_montoparcial")
 	private Double montoParcial;
 	

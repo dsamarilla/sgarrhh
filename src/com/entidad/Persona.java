@@ -30,7 +30,7 @@ public class Persona  implements Serializable{
 //	@OneToMany(mappedBy="ausencia", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 //	private Collection<Ausencia> ausencia;
 	
-	@OneToMany(mappedBy="con_codper", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Contrato> contrato;
 	
 	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
@@ -67,9 +67,12 @@ public class Persona  implements Serializable{
 	@Column(name="per_est")
 	private String estado;	
 	//bi-directional many-to-one association to Pedido
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="per_codtpdocu")
 	private TipoDocumento tipodocumento;
+	
+	
 	@Column(name="per_imagen")
 	private byte[] imagen;
 	public Persona() {

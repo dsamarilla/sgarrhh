@@ -23,7 +23,7 @@ public class Haber implements Serializable {
 	private Integer numero;
 	
 
-	@OneToMany(mappedBy="lqd_nroliquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="numeroHaber", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<HaberDetalle> haberdetalle;
 	
 	@Column(name="hab_monto")

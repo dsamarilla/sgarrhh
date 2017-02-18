@@ -19,13 +19,20 @@ public class Descuento {
 	@Column(name="deb_num")
 	private Integer numero;
 	
-	@OneToMany(mappedBy="codigoDescuento", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Collection<HaberDetalle> haberdetalle;
+//	
+//	@ManyToOne(cascade={CascadeType.PERSIST})
+//	@JoinColumn(name="codigoDescuento")
+//	private Collection<TDescuento> tipodescuento;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="deb_codtpdes")
-	private TipoDescuento codigoTipoDescuento;
+	private TipoDescuento tipoDescuento;
+	
+	@Column(name="deb_monto")
 	private Double monto;
+	
+	@Column(name="deb_fechahora")
+	private Date fecha;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="deb_codper")
@@ -34,9 +41,6 @@ public class Descuento {
 	@Column(name="deb_estado")
 	private String estado;
 	
-	@Column(name="deb_fechahora")
-	private Date fecha;
-	
 	@Column(name="deb_obs")
 	private String observacion;
 	
@@ -44,7 +48,7 @@ public class Descuento {
 	public Descuento() {
 		super();
 		this.numero = 0;
-		this.codigoTipoDescuento = new TipoDescuento();
+		this.tipoDescuento = new TipoDescuento();
 		this.monto = new Double(0);
 		this.codigoPersona = new Persona();
 		this.estado = "";
@@ -57,7 +61,7 @@ public class Descuento {
 			Persona codigoPersona, String estado, Date fecha, String observacion) {
 		super();
 		this.numero = numero;
-		this.codigoTipoDescuento = codigoTipoDescuento;
+		this.tipoDescuento = codigoTipoDescuento;
 		this.monto = monto;
 		this.codigoPersona = codigoPersona;
 		this.estado = estado;
@@ -79,13 +83,13 @@ public class Descuento {
 
 
 	public TipoDescuento getcodigoTipoDescuento() {
-		return codigoTipoDescuento;
+		return tipoDescuento;
 	}
 
 
 
 	public void setcodigoTipoDescuento(TipoDescuento codigoTipoDescuento) {
-		this.codigoTipoDescuento = codigoTipoDescuento;
+		this.tipoDescuento = codigoTipoDescuento;
 	}
 
 
@@ -152,7 +156,7 @@ public class Descuento {
 
 	@Override
 	public String toString() {
-		return "Bonificacion [numero=" + numero + ", codigoTipoDescuento=" + codigoTipoDescuento
+		return "Bonificacion [numero=" + numero + ", codigoTipoDescuento=" + tipoDescuento
 				+ ", monto=" + monto + ", codigoPersona=" + codigoPersona + ", estado=" + estado + ", fecha=" + fecha
 				+ ", observacion=" + observacion + "]";
 	}
