@@ -1,7 +1,24 @@
 package com.entidad;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="rhco_salario")
 public class Salario {
+	
+	@Id
+	@Column(name="sal_cod")
 	private Integer codigo;
+	
+	@OneToMany(mappedBy="contrato", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<Contrato> contrato;
+		
 	private String descripcion;
 	private Double monto;
 	

@@ -1,15 +1,43 @@
 package com.entidad;
 
+import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="rhlq_descuento")
 public class Descuento {
-	
+	@Id
+	@Column(name="deb_num")
 	private Integer numero;
+	
+	@OneToMany(mappedBy="haber_detalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<HaberDetalle> haberdetalle;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="deb_codtpdes")
 	private TipoDescuento codigoTipoDescuento;
 	private Double monto;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="deb_codper")
 	private Persona codigoPersona;
+	
+	@Column(name="deb_estado")
 	private String estado;
+	
+	@Column(name="deb_fechahora")
 	private Date fecha;
+	
+	@Column(name="deb_obs")
 	private String observacion;
 	
 		

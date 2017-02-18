@@ -1,5 +1,7 @@
 package com.entidad;
 
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +14,16 @@ import javax.persistence.Table;
 public class Concepto {
 	@Id
 	@Column(name="cot_cod")
-	@OneToMany(mappedBy="liquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Integer codigo;
+	
+	@OneToMany(mappedBy="liquidacion_detalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<LiquidacionDetalle> liquidaciondetalle;
+	
+	
+	@OneToMany(mappedBy="haber_detalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<HaberDetalle> haberdetalle;
+	
+	
 	@Column(name="cot_des")
 	private String descripcion;
 

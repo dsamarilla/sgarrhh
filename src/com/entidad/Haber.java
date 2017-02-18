@@ -25,6 +25,7 @@ public class Haber implements Serializable {
 	private Date fecha;
 	@Column(name="hab_obs")
 	private String observacion;
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="hab_codrubro")
 	private Rubro codigoRubro;

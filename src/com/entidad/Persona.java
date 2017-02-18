@@ -1,7 +1,6 @@
 package com.entidad;
 
 import java.io.Serializable;
-import java.lang.annotation.Repeatable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -38,7 +37,7 @@ public class Persona implements Serializable{
 	private Collection<Descuento> descuento;
 	
 	@OneToMany(mappedBy="entradasalida", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Collection<EntradaSalida> entradaSalida;
+	private Collection<EntradaSalida> entradasalida;
 	
 	
 	@Column(name="per_docu")

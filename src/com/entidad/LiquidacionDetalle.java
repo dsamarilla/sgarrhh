@@ -3,21 +3,32 @@ package com.entidad;
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="rhlq_liquidacion_detalle")
 
 public class LiquidacionDetalle implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="lqd_codconcepto")
 	private Concepto codigoConcepto;
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="lqd_nroliquidacion")
 	private Liquidacion numeroLiquidacion;
+	
+	@Column(name="lqd_montoparcial")
 	private Double montoParcial;
+	
 	public LiquidacionDetalle() {
 		super();
 		this.codigoConcepto = new Concepto();

@@ -1,6 +1,7 @@
 package com.entidad;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,16 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
-@Table(name="hab_codrubro")
+@Table(name="rhco_rubro")
 public class Rubro implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	
 	@Column(name="rub_cod")
-	@OneToMany(mappedBy="Haber", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	
 	private Integer codigo;
+		
+	@OneToMany(mappedBy="haber", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<Haber> haber;
+	
+	
 	@Column(name="rub_des")
 	private String descripcion;
 	

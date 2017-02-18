@@ -2,12 +2,31 @@ package com.entidad;
 
 import java.util.Date;
 
-public class Contrato {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="rhrl_contrato")
+public class Contrato {
+	
+	@Id
+	@Column(name="con_num")
 	private Integer numero;
 	private String descripcion;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="con_codsal")
 	private Salario codSalario;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="con_codper")
 	private Persona codPersona;
+	
 	private Cargo codCargo;
 	private Date fechaIngreso;
 	

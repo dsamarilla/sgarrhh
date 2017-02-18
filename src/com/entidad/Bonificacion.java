@@ -22,12 +22,14 @@ public class Bonificacion implements Serializable {
 	@Column(name="bod_num")
 	@OneToMany(mappedBy="HaberDetalle", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Integer numero;
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="bod_codtpbon")
 	private TipoBonificacion codigoTipoBonificacion;
 	
 	@Column(name="bod_monto")
 	private Double monto;
+	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="bod_codper")
 	private Persona codigoPersona;
