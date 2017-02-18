@@ -26,6 +26,11 @@ public class TipoDocumento {
 		this.codigo = 0;
 		this.descripcion = "";	
 		}
+	public TipoDocumento(Integer codigo) {
+		super();
+		this.codigo = codigo;
+		this.descripcion="";
+	}
 	public TipoDocumento(Integer codigo, String descripcion) {
 		super();
 		this.codigo = codigo;

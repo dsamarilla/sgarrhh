@@ -33,7 +33,7 @@ public class HaberDetalle implements Serializable{
 	private Integer numero;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="had_nro")
+	@JoinColumn(name="had_nrohaber")
 	private Haber numeroHaber;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
