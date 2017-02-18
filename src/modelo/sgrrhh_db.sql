@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2017 a las 21:24:48
--- Versión del servidor: 5.7.12-log
--- Versión de PHP: 5.6.23
+-- Tiempo de generación: 18-02-2017 a las 21:40:51
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.5.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `rhco_concepto`
 --
 
-CREATE TABLE `rhco_concepto` (
+CREATE TABLE IF NOT EXISTS `rhco_concepto` (
   `cot_cod` int(15) NOT NULL COMMENT 'Codigo',
   `cot_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Concepto';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Concepto';
 
 --
 -- Volcado de datos para la tabla `rhco_concepto`
@@ -47,10 +47,10 @@ INSERT INTO `rhco_concepto` (`cot_cod`, `cot_des`) VALUES
 -- Estructura de tabla para la tabla `rhco_rubro`
 --
 
-CREATE TABLE `rhco_rubro` (
+CREATE TABLE IF NOT EXISTS `rhco_rubro` (
   `rub_cod` int(15) NOT NULL COMMENT 'Codigo',
   `rub_des` varchar(100) NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Deposito de Rubros';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Deposito de Rubros';
 
 --
 -- Volcado de datos para la tabla `rhco_rubro`
@@ -66,11 +66,11 @@ INSERT INTO `rhco_rubro` (`rub_cod`, `rub_des`) VALUES
 -- Estructura de tabla para la tabla `rhco_tipobonificacion`
 --
 
-CREATE TABLE `rhco_tipobonificacion` (
+CREATE TABLE IF NOT EXISTS `rhco_tipobonificacion` (
   `tbon_cod` int(15) NOT NULL COMMENT 'Codigo',
   `tbon_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `tbon_porcentaje` varchar(3) COLLATE utf8_bin NOT NULL COMMENT 'Porcentaje'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Bonificacion';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Bonificacion';
 
 --
 -- Volcado de datos para la tabla `rhco_tipobonificacion`
@@ -86,7 +86,7 @@ INSERT INTO `rhco_tipobonificacion` (`tbon_cod`, `tbon_des`, `tbon_porcentaje`) 
 -- Estructura de tabla para la tabla `rhco_tipodescuento`
 --
 
-CREATE TABLE `rhco_tipodescuento` (
+CREATE TABLE IF NOT EXISTS `rhco_tipodescuento` (
   `tdes_nro` int(15) NOT NULL COMMENT 'Numero',
   `tdes_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `tdes_porcentaje` varchar(3) COLLATE utf8_bin NOT NULL COMMENT 'Porcentaje'
@@ -98,10 +98,10 @@ CREATE TABLE `rhco_tipodescuento` (
 -- Estructura de tabla para la tabla `rhco_tipodocumento`
 --
 
-CREATE TABLE `rhco_tipodocumento` (
+CREATE TABLE IF NOT EXISTS `rhco_tipodocumento` (
   `tdo_cod` int(15) NOT NULL COMMENT 'Codigo',
   `tdo_des` varchar(200) NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Deposito del Tipo de Documentos';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Deposito del Tipo de Documentos';
 
 --
 -- Volcado de datos para la tabla `rhco_tipodocumento`
@@ -120,7 +120,7 @@ INSERT INTO `rhco_tipodocumento` (`tdo_cod`, `tdo_des`) VALUES
 -- Estructura de tabla para la tabla `rhco_tipopersona`
 --
 
-CREATE TABLE `rhco_tipopersona` (
+CREATE TABLE IF NOT EXISTS `rhco_tipopersona` (
   `tper_cod` int(15) NOT NULL COMMENT 'Codigo',
   `tper_des` varchar(30) NOT NULL COMMENT 'Descripcion'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Deposito del Tipo de Persona';
@@ -131,7 +131,7 @@ CREATE TABLE `rhco_tipopersona` (
 -- Estructura de tabla para la tabla `rhes_ausencia`
 --
 
-CREATE TABLE `rhes_ausencia` (
+CREATE TABLE IF NOT EXISTS `rhes_ausencia` (
   `aus_nro` int(15) NOT NULL COMMENT 'Numero',
   `aus_fecin` date NOT NULL COMMENT 'Fecha de Inicio',
   `aus_fecfin` date NOT NULL COMMENT 'Fecha de Finalizacion',
@@ -146,7 +146,7 @@ CREATE TABLE `rhes_ausencia` (
 -- Estructura de tabla para la tabla `rhes_entradasalida`
 --
 
-CREATE TABLE `rhes_entradasalida` (
+CREATE TABLE IF NOT EXISTS `rhes_entradasalida` (
   `ens_nro` int(15) NOT NULL COMMENT 'Numero',
   `ens_fecent` date NOT NULL COMMENT 'Fecha de entrada',
   `ens_fecsal` date NOT NULL COMMENT 'Fecha de salida',
@@ -154,7 +154,7 @@ CREATE TABLE `rhes_entradasalida` (
   `ens_hsal` varchar(5) COLLATE utf8_bin NOT NULL COMMENT 'Hora de salida',
   `ens_codper` int(15) NOT NULL COMMENT 'Codigo de la Persona',
   `ens_tpes` int(15) NOT NULL COMMENT 'Codigo del Tipo de entrada/salida'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Entrada/Salida';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Entrada/Salida';
 
 --
 -- Volcado de datos para la tabla `rhes_entradasalida`
@@ -169,12 +169,12 @@ INSERT INTO `rhes_entradasalida` (`ens_nro`, `ens_fecent`, `ens_fecsal`, `ens_he
 -- Estructura de tabla para la tabla `rhes_horario`
 --
 
-CREATE TABLE `rhes_horario` (
+CREATE TABLE IF NOT EXISTS `rhes_horario` (
   `hor_cod` int(15) NOT NULL COMMENT 'Codigo',
   `hor_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `hor_hent` varchar(5) COLLATE utf8_bin NOT NULL COMMENT 'Hora de entrada',
   `hor_hsal` varchar(5) COLLATE utf8_bin NOT NULL COMMENT 'Hora de salida'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Horarios';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Horarios';
 
 --
 -- Volcado de datos para la tabla `rhes_horario`
@@ -190,13 +190,13 @@ INSERT INTO `rhes_horario` (`hor_cod`, `hor_des`, `hor_hent`, `hor_hsal`) VALUES
 -- Estructura de tabla para la tabla `rhes_horarioasignado`
 --
 
-CREATE TABLE `rhes_horarioasignado` (
+CREATE TABLE IF NOT EXISTS `rhes_horarioasignado` (
   `has_nro` int(15) NOT NULL COMMENT 'Numero',
   `has_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `has_fec` date NOT NULL COMMENT 'Fecha',
   `has_codper` int(15) NOT NULL COMMENT 'Codigo de la Persona',
   `has_codhor` int(15) NOT NULL COMMENT 'Codigo del Horario'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Horarios asignados';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Horarios asignados';
 
 --
 -- Volcado de datos para la tabla `rhes_horarioasignado`
@@ -212,7 +212,7 @@ INSERT INTO `rhes_horarioasignado` (`has_nro`, `has_des`, `has_fec`, `has_codper
 -- Estructura de tabla para la tabla `rhes_llegadatardia`
 --
 
-CREATE TABLE `rhes_llegadatardia` (
+CREATE TABLE IF NOT EXISTS `rhes_llegadatardia` (
   `lle_nro` int(15) NOT NULL COMMENT 'Numero',
   `lle_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `lle_cant` int(3) NOT NULL COMMENT 'Cantidad',
@@ -225,10 +225,10 @@ CREATE TABLE `rhes_llegadatardia` (
 -- Estructura de tabla para la tabla `rhes_tipoausencia`
 --
 
-CREATE TABLE `rhes_tipoausencia` (
+CREATE TABLE IF NOT EXISTS `rhes_tipoausencia` (
   `tau_cod` int(15) NOT NULL COMMENT 'Codigo',
   `tau_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Ausencia';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Ausencia';
 
 --
 -- Volcado de datos para la tabla `rhes_tipoausencia`
@@ -244,10 +244,10 @@ INSERT INTO `rhes_tipoausencia` (`tau_cod`, `tau_des`) VALUES
 -- Estructura de tabla para la tabla `rhes_tipoentradasalida`
 --
 
-CREATE TABLE `rhes_tipoentradasalida` (
+CREATE TABLE IF NOT EXISTS `rhes_tipoentradasalida` (
   `tes_cod` int(15) NOT NULL COMMENT 'Codigo',
   `tes_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Entrada/Salida';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Tipo de Entrada/Salida';
 
 --
 -- Volcado de datos para la tabla `rhes_tipoentradasalida`
@@ -263,7 +263,7 @@ INSERT INTO `rhes_tipoentradasalida` (`tes_cod`, `tes_des`) VALUES
 -- Estructura de tabla para la tabla `rhlq_bonificacion`
 --
 
-CREATE TABLE `rhlq_bonificacion` (
+CREATE TABLE IF NOT EXISTS `rhlq_bonificacion` (
   `bod_num` int(15) NOT NULL COMMENT 'Numero',
   `bod_codtpbon` int(15) NOT NULL COMMENT 'Codigo del Tipo de Bonificacion',
   `bod_monto` float(15,2) NOT NULL COMMENT 'Monto',
@@ -279,7 +279,7 @@ CREATE TABLE `rhlq_bonificacion` (
 -- Estructura de tabla para la tabla `rhlq_descuento`
 --
 
-CREATE TABLE `rhlq_descuento` (
+CREATE TABLE IF NOT EXISTS `rhlq_descuento` (
   `deb_num` int(15) NOT NULL COMMENT 'Numero',
   `deb_codtpdes` int(15) NOT NULL COMMENT 'Codigo del Tipo de Descuento',
   `deb_monto` float(15,2) NOT NULL COMMENT 'Monto',
@@ -295,7 +295,7 @@ CREATE TABLE `rhlq_descuento` (
 -- Estructura de tabla para la tabla `rhlq_haber`
 --
 
-CREATE TABLE `rhlq_haber` (
+CREATE TABLE IF NOT EXISTS `rhlq_haber` (
   `hab_nro` int(15) NOT NULL COMMENT 'Numero',
   `hab_monto` float(15,2) NOT NULL COMMENT 'Monto',
   `hab_fec` date NOT NULL COMMENT 'Fecha',
@@ -309,7 +309,7 @@ CREATE TABLE `rhlq_haber` (
 -- Estructura de tabla para la tabla `rhlq_haber_detalle`
 --
 
-CREATE TABLE `rhlq_haber_detalle` (
+CREATE TABLE IF NOT EXISTS `rhlq_haber_detalle` (
   `had_nro` int(15) NOT NULL COMMENT 'Numero',
   `had_codconcep` int(15) NOT NULL COMMENT 'Codigo Concepto',
   `had_nroliq` int(15) NOT NULL COMMENT 'Numero de Liquidacion',
@@ -323,13 +323,13 @@ CREATE TABLE `rhlq_haber_detalle` (
 -- Estructura de tabla para la tabla `rhlq_liquidacion`
 --
 
-CREATE TABLE `rhlq_liquidacion` (
+CREATE TABLE IF NOT EXISTS `rhlq_liquidacion` (
   `liq_nro` int(15) NOT NULL COMMENT 'Numero',
   `liq_fecha` date NOT NULL COMMENT 'Fecha',
   `liq_monto` float(15,2) NOT NULL COMMENT 'Monto',
   `liq_codper` int(15) NOT NULL COMMENT 'Codigo de la Persona',
   `liq_obs` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT 'Observacion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Liquidacion';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Liquidacion';
 
 --
 -- Volcado de datos para la tabla `rhlq_liquidacion`
@@ -347,12 +347,12 @@ INSERT INTO `rhlq_liquidacion` (`liq_nro`, `liq_fecha`, `liq_monto`, `liq_codper
 -- Estructura de tabla para la tabla `rhlq_liquidacion_detalle`
 --
 
-CREATE TABLE `rhlq_liquidacion_detalle` (
+CREATE TABLE IF NOT EXISTS `rhlq_liquidacion_detalle` (
   `lqd_id` int(15) NOT NULL COMMENT 'ID',
   `lqd_codconcepto` int(11) NOT NULL COMMENT 'código de concepto',
   `lqd_nroliquidacion` int(11) NOT NULL,
   `lqd_montoparcial` decimal(12,4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `rhlq_liquidacion_detalle`
@@ -367,12 +367,12 @@ INSERT INTO `rhlq_liquidacion_detalle` (`lqd_id`, `lqd_codconcepto`, `lqd_nroliq
 -- Estructura de tabla para la tabla `rhrl_cargo`
 --
 
-CREATE TABLE `rhrl_cargo` (
+CREATE TABLE IF NOT EXISTS `rhrl_cargo` (
   `car_cod` int(15) NOT NULL COMMENT 'Codigo',
   `car_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `car_codfun` int(15) NOT NULL COMMENT 'Codigo de la Funcion',
   `car_coddep` int(15) NOT NULL COMMENT 'Codigo del Departamento'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Cargo';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Cargo';
 
 --
 -- Volcado de datos para la tabla `rhrl_cargo`
@@ -388,14 +388,14 @@ INSERT INTO `rhrl_cargo` (`car_cod`, `car_des`, `car_codfun`, `car_coddep`) VALU
 -- Estructura de tabla para la tabla `rhrl_contrato`
 --
 
-CREATE TABLE `rhrl_contrato` (
+CREATE TABLE IF NOT EXISTS `rhrl_contrato` (
   `con_nro` int(15) NOT NULL COMMENT 'Numero',
   `con_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `con_fecin` date NOT NULL COMMENT 'Fecha de Ingreso',
   `con_nrosal` int(15) NOT NULL COMMENT 'Numero del Salario',
   `con_codper` int(15) NOT NULL COMMENT 'Codigo de la Persona',
   `con_codcar` int(15) NOT NULL COMMENT 'Codigo del Cargo'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Contrato';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Contrato';
 
 --
 -- Volcado de datos para la tabla `rhrl_contrato`
@@ -411,10 +411,10 @@ INSERT INTO `rhrl_contrato` (`con_nro`, `con_des`, `con_fecin`, `con_nrosal`, `c
 -- Estructura de tabla para la tabla `rhrl_departamento`
 --
 
-CREATE TABLE `rhrl_departamento` (
+CREATE TABLE IF NOT EXISTS `rhrl_departamento` (
   `dep_cod` int(15) NOT NULL COMMENT 'Codigo',
   `dep_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Departamento';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Departamento';
 
 --
 -- Volcado de datos para la tabla `rhrl_departamento`
@@ -430,7 +430,7 @@ INSERT INTO `rhrl_departamento` (`dep_cod`, `dep_des`) VALUES
 -- Estructura de tabla para la tabla `rhrl_detalle_persona`
 --
 
-CREATE TABLE `rhrl_detalle_persona` (
+CREATE TABLE IF NOT EXISTS `rhrl_detalle_persona` (
   `dpe_cod` int(15) NOT NULL COMMENT 'Codigo',
   `dpe_codper` int(15) NOT NULL COMMENT 'Codigo de la Persona',
   `dpe_codtipper` int(15) NOT NULL COMMENT 'Codigo del Tipo de Persona'
@@ -442,10 +442,10 @@ CREATE TABLE `rhrl_detalle_persona` (
 -- Estructura de tabla para la tabla `rhrl_funcion`
 --
 
-CREATE TABLE `rhrl_funcion` (
+CREATE TABLE IF NOT EXISTS `rhrl_funcion` (
   `fun_cod` int(15) NOT NULL COMMENT 'Codigo',
   `fun_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Funcion';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Funcion';
 
 --
 -- Volcado de datos para la tabla `rhrl_funcion`
@@ -461,7 +461,7 @@ INSERT INTO `rhrl_funcion` (`fun_cod`, `fun_des`) VALUES
 -- Estructura de tabla para la tabla `rhrl_persona`
 --
 
-CREATE TABLE `rhrl_persona` (
+CREATE TABLE IF NOT EXISTS `rhrl_persona` (
   `per_cod` int(15) NOT NULL COMMENT 'Codigo',
   `per_docu` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Documento',
   `per_nom` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Nombre',
@@ -478,7 +478,7 @@ CREATE TABLE `rhrl_persona` (
   `per_est` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Estado 1-Activo,2-Inactivo',
   `per_codtpdocu` int(15) DEFAULT NULL COMMENT 'Codigo del Tipo de Documento',
   `per_imagen` longblob COMMENT 'Imagen de la Persona'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Persona';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Persona';
 
 --
 -- Volcado de datos para la tabla `rhrl_persona`
@@ -499,11 +499,11 @@ INSERT INTO `rhrl_persona` (`per_cod`, `per_docu`, `per_nom`, `per_ape`, `per_fe
 -- Estructura de tabla para la tabla `rhrl_salario`
 --
 
-CREATE TABLE `rhrl_salario` (
+CREATE TABLE IF NOT EXISTS `rhrl_salario` (
   `sal_nro` int(15) NOT NULL COMMENT 'Numero',
   `sal_des` varchar(30) COLLATE utf8_bin NOT NULL COMMENT 'Descripcion',
   `sal_monto` float(15,2) NOT NULL COMMENT 'Monto'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Salario';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Deposito de Salario';
 
 --
 -- Volcado de datos para la tabla `rhrl_salario`
@@ -519,7 +519,7 @@ INSERT INTO `rhrl_salario` (`sal_nro`, `sal_des`, `sal_monto`) VALUES
 -- Estructura de tabla para la tabla `sec_apps`
 --
 
-CREATE TABLE `sec_apps` (
+CREATE TABLE IF NOT EXISTS `sec_apps` (
   `app_name` varchar(128) NOT NULL,
   `app_type` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL
@@ -564,10 +564,10 @@ INSERT INTO `sec_apps` (`app_name`, `app_type`, `description`) VALUES
 -- Estructura de tabla para la tabla `sec_groups`
 --
 
-CREATE TABLE `sec_groups` (
+CREATE TABLE IF NOT EXISTS `sec_groups` (
   `group_id` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `sec_groups`
@@ -582,7 +582,7 @@ INSERT INTO `sec_groups` (`group_id`, `description`) VALUES
 -- Estructura de tabla para la tabla `sec_groups_apps`
 --
 
-CREATE TABLE `sec_groups_apps` (
+CREATE TABLE IF NOT EXISTS `sec_groups_apps` (
   `group_id` int(11) NOT NULL,
   `app_name` varchar(128) NOT NULL,
   `priv_access` varchar(1) DEFAULT NULL,
@@ -632,7 +632,7 @@ INSERT INTO `sec_groups_apps` (`group_id`, `app_name`, `priv_access`, `priv_inse
 -- Estructura de tabla para la tabla `sec_logged`
 --
 
-CREATE TABLE `sec_logged` (
+CREATE TABLE IF NOT EXISTS `sec_logged` (
   `login` varchar(255) NOT NULL,
   `date_login` varchar(128) DEFAULT NULL,
   `sc_session` varchar(32) DEFAULT NULL,
@@ -652,7 +652,7 @@ INSERT INTO `sec_logged` (`login`, `date_login`, `sc_session`, `ip`) VALUES
 -- Estructura de tabla para la tabla `sec_users`
 --
 
-CREATE TABLE `sec_users` (
+CREATE TABLE IF NOT EXISTS `sec_users` (
   `login` varchar(255) NOT NULL,
   `pswd` varchar(32) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
@@ -676,7 +676,7 @@ INSERT INTO `sec_users` (`login`, `pswd`, `name`, `email`, `active`, `activation
 -- Estructura de tabla para la tabla `sec_users_groups`
 --
 
-CREATE TABLE `sec_users_groups` (
+CREATE TABLE IF NOT EXISTS `sec_users_groups` (
   `login` varchar(255) NOT NULL,
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -915,17 +915,17 @@ ALTER TABLE `sec_users_groups`
 -- AUTO_INCREMENT de la tabla `rhco_concepto`
 --
 ALTER TABLE `rhco_concepto`
-  MODIFY `cot_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=5;
+  MODIFY `cot_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `rhco_rubro`
 --
 ALTER TABLE `rhco_rubro`
-  MODIFY `rub_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `rub_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhco_tipobonificacion`
 --
 ALTER TABLE `rhco_tipobonificacion`
-  MODIFY `tbon_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `tbon_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhco_tipodescuento`
 --
@@ -935,7 +935,7 @@ ALTER TABLE `rhco_tipodescuento`
 -- AUTO_INCREMENT de la tabla `rhco_tipodocumento`
 --
 ALTER TABLE `rhco_tipodocumento`
-  MODIFY `tdo_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=8;
+  MODIFY `tdo_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `rhco_tipopersona`
 --
@@ -950,17 +950,17 @@ ALTER TABLE `rhes_ausencia`
 -- AUTO_INCREMENT de la tabla `rhes_entradasalida`
 --
 ALTER TABLE `rhes_entradasalida`
-  MODIFY `ens_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero', AUTO_INCREMENT=3;
+  MODIFY `ens_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhes_horario`
 --
 ALTER TABLE `rhes_horario`
-  MODIFY `hor_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `hor_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhes_horarioasignado`
 --
 ALTER TABLE `rhes_horarioasignado`
-  MODIFY `has_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero', AUTO_INCREMENT=3;
+  MODIFY `has_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhes_llegadatardia`
 --
@@ -970,12 +970,12 @@ ALTER TABLE `rhes_llegadatardia`
 -- AUTO_INCREMENT de la tabla `rhes_tipoausencia`
 --
 ALTER TABLE `rhes_tipoausencia`
-  MODIFY `tau_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `tau_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhes_tipoentradasalida`
 --
 ALTER TABLE `rhes_tipoentradasalida`
-  MODIFY `tes_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `tes_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhlq_bonificacion`
 --
@@ -1000,27 +1000,27 @@ ALTER TABLE `rhlq_haber_detalle`
 -- AUTO_INCREMENT de la tabla `rhlq_liquidacion`
 --
 ALTER TABLE `rhlq_liquidacion`
-  MODIFY `liq_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero', AUTO_INCREMENT=10;
+  MODIFY `liq_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero',AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `rhlq_liquidacion_detalle`
 --
 ALTER TABLE `rhlq_liquidacion_detalle`
-  MODIFY `lqd_id` int(15) NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=2;
+  MODIFY `lqd_id` int(15) NOT NULL AUTO_INCREMENT COMMENT 'ID',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `rhrl_cargo`
 --
 ALTER TABLE `rhrl_cargo`
-  MODIFY `car_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `car_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhrl_contrato`
 --
 ALTER TABLE `rhrl_contrato`
-  MODIFY `con_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero', AUTO_INCREMENT=3;
+  MODIFY `con_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhrl_departamento`
 --
 ALTER TABLE `rhrl_departamento`
-  MODIFY `dep_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `dep_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhrl_detalle_persona`
 --
@@ -1030,22 +1030,22 @@ ALTER TABLE `rhrl_detalle_persona`
 -- AUTO_INCREMENT de la tabla `rhrl_funcion`
 --
 ALTER TABLE `rhrl_funcion`
-  MODIFY `fun_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=3;
+  MODIFY `fun_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rhrl_persona`
 --
 ALTER TABLE `rhrl_persona`
-  MODIFY `per_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo', AUTO_INCREMENT=8;
+  MODIFY `per_cod` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Codigo',AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `rhrl_salario`
 --
 ALTER TABLE `rhrl_salario`
-  MODIFY `sal_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero', AUTO_INCREMENT=3;
+  MODIFY `sal_nro` int(15) NOT NULL AUTO_INCREMENT COMMENT 'Numero',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `sec_groups`
 --
 ALTER TABLE `sec_groups`
-  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --
