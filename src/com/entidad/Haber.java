@@ -1,6 +1,7 @@
 package com.entidad;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="rhlq_haber")
@@ -19,6 +21,11 @@ public class Haber implements Serializable {
 	@Id
 	@Column(name="hab_nro")
 	private Integer numero;
+	
+
+	@OneToMany(mappedBy="lqd_nroliquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<HaberDetalle> haberdetalle;
+	
 	@Column(name="hab_monto")
 	private Float monto;
 	@Column(name="hab_fec")

@@ -27,9 +27,10 @@ public class HaberDetalle implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="had_nro")
-	private Integer numero;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="had_nro")
+	private Haber numeroHaber;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="had_codconcep")
@@ -53,7 +54,7 @@ public class HaberDetalle implements Serializable{
 		// TODO Auto-generated constructor stub
 		
 		super();
-		this.numero = 0;
+		this.numeroHaber = new Haber();
 		this.codigoConcepto = new Concepto();
 		this.numeroLiquidacion = new Liquidacion();
 		this.codigoDescuento = new Descuento() ;
@@ -61,22 +62,24 @@ public class HaberDetalle implements Serializable{
 		
 	}
 
-	public HaberDetalle(Integer numero, Concepto codigoConcepto, Liquidacion numeroLiquidacion,
+	public HaberDetalle(Haber numeroHaber, Concepto codigoConcepto, Liquidacion numeroLiquidacion,
 			Descuento codigoDescuento, Bonificacion codigoBonificacion) {
 		super();
-		this.numero = numero;
+		this.numeroHaber = numeroHaber;
 		this.codigoConcepto = codigoConcepto;
 		this.numeroLiquidacion = numeroLiquidacion;
 		this.codigoDescuento = codigoDescuento;
 		this.codigoBonificacion = codigoBonificacion;
 	}
 
-	public Integer getNumero() {
-		return numero;
+	
+
+	public Haber getNumeroHaber() {
+		return numeroHaber;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setNumeroHaber(Haber numeroHaber) {
+		this.numeroHaber = numeroHaber;
 	}
 
 	public Concepto getCodigoConcepto() {
@@ -113,7 +116,7 @@ public class HaberDetalle implements Serializable{
 
 	@Override
 	public String toString() {
-		return "HaberDetalle [numero=" + numero + ", codigoConcepto=" + codigoConcepto + ", numeroLiquidacion="
+		return "HaberDetalle [numero=" + numeroHaber + ", codigoConcepto=" + codigoConcepto + ", numeroLiquidacion="
 				+ numeroLiquidacion + ", codigoDescuento=" + codigoDescuento + ", codigoBonificacion="
 				+ codigoBonificacion + "]";
 	}

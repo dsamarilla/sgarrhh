@@ -13,32 +13,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="rhrl_persona")
-public class Persona implements Serializable{
+public class Persona  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="per_cod")
 	private Integer codigo;
 	
-	@OneToMany(mappedBy="liquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Liquidacion> liquidacion;
 	
-	@OneToMany(mappedBy="bonificaion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Bonificacion> bonificacion;
 	
 
-	@OneToMany(mappedBy="ausencia", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Collection<Ausencia> ausencia;
+//	@OneToMany(mappedBy="ausencia", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+//	private Collection<Ausencia> ausencia;
 	
-	@OneToMany(mappedBy="contrato", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="con_codper", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Contrato> contrato;
 	
-	@OneToMany(mappedBy="descuento", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Descuento> descuento;
-	
-	@OneToMany(mappedBy="entradasalida", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Collection<EntradaSalida> entradasalida;
-	
+//	
+//	@OneToMany(mappedBy="entradasalida", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+//	private Collection<EntradaSalida> entradasalida;
+//	
 	
 	@Column(name="per_docu")
 	private String documento;
