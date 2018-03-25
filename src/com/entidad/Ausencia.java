@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Ausencia {
 	
-	private Integer codigo;
+	private Integer cod;
 	private Persona codPersona;
 	private Date fechaInicio;
 	private Date fechaFin;
@@ -14,7 +14,7 @@ public class Ausencia {
     
     public Ausencia() {
 		super();
-		this.codigo = 0;
+		this.cod = 0;
 		this.codPersona = new Persona();
 		this.fechaInicio = new Date();
 		this.fechaFin = new Date();
@@ -25,7 +25,7 @@ public class Ausencia {
 	public Ausencia(Integer codigo, Persona codPersona, Date fechaInicio, Date fechaFin, String descripcion,
 			TipoAusencia tipoAusencia) {
 		super();
-		this.codigo = codigo;
+		this.cod = codigo;
 		this.codPersona = codPersona;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
@@ -35,12 +35,12 @@ public class Ausencia {
 
 
 	public Integer getCodigo() {
-		return codigo;
+		return cod;
 	}
 
 
 	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+		this.cod = codigo;
 	}
 
 
@@ -96,7 +96,7 @@ public class Ausencia {
 
 	@Override
 	public String toString() {
-		return "Ausencia [codigo=" + codigo + ", codPersona=" + codPersona + ", fechaInicio=" + fechaInicio
+		return "Ausencia [codigo=" + cod + ", codPersona=" + codPersona + ", fechaInicio=" + fechaInicio
 				+ ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + ", tipoAusencia=" + tipoAusencia + "]";
 	}
     
