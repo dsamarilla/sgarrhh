@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
-	<title>Sistema de Control</title>
+	<title>Sistema SGRRHH</title>
 	
 	<script type="text/javascript">
 	
@@ -22,19 +22,12 @@
 		<input type="hidden" id="entityName" name="entityName" />
 	</form>
 	<div class="divMainTitulo">
-		Sistema de Control - POSTGRADO
+		Sistema de Gestion para Recursos Humanos
 	</div>
 	<div class="divMenu">
 		<div class="titulo">MENU</div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Marca','goFind');">Marca</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Modelo','goFind');">Modelo</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Funcionario','goFind');">Funcionario.</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Vehiculo','goFind');">Vehiculo.</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Cliente','goFind');">Cliente</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Servicio','goFind');">Servicio</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Producto','goFind');">Producto</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Venta','goFind');">Venta</a></div>
+		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Ciudad','goFind');">Ciudad</a></div>
+		
 	</div>
 	<div class="divMain">
 		<iframe class="iframeMain" name="main" frameborder="1" style="border: 1px solid; border-color:#ff0000"></iframe>
