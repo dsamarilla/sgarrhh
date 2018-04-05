@@ -36,11 +36,4 @@ public class ControllerCiudad extends Controller {
 		this.goNew();
 	}
 
-	@Override
-	public boolean isLogged() throws Exception {
-		if (this.request.getSession().getAttribute("UsuarioLogado") != null) {
-			return true;
-		}
-		return false;
-	}
 }

@@ -1,34 +1,49 @@
 package entity;
 
-public class Ciudad {
-	private Integer codigo;
+import java.io.Serializable;
+
+import annotation.Column;
+import annotation.DataType;
+import annotation.Entity;
+import annotation.GeneratedValue;
+import annotation.Id;
+import annotation.Table;
+
+@Entity
+@Table(name="ciudad")
+
+public class Ciudad implements Serializable {
+	
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	@Column(name="id",type=DataType.INTEGER,unique=true)
+	private Integer id;
+	
+	
+	@Column(name="descripcion",type=DataType.STRING,length=255)
 	private String descripcion;
+	
+	
 	public Ciudad() {
-		super();
-		this.codigo = 0;
-		this.descripcion = "";	
-		}
-	public Ciudad(Integer codigo, String descripcion) {
-		super();
-		this.codigo = codigo;
-		this.descripcion = descripcion;
 	}
-	public Integer getCodigo() {
-		return codigo;
+	
+	public Integer getId() {
+		return this.id;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
+	
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	@Override
-	public String toString() {
-		return "Ciudad [codigo=" + codigo + ", descripcion=" + descripcion + "]";
-	}
-	
-	
+		
 }
