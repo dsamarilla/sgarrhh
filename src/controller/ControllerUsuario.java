@@ -1,6 +1,6 @@
 package controller;
 
-import py.edu.fpune.posgrado.infra.Controller;
+import infra.Controller;
 
 public class ControllerUsuario extends Controller {
 
