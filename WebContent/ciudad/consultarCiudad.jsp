@@ -69,12 +69,11 @@
 			<input type="hidden" id="newAction" name="newAction" />
 			<input type="hidden" id="entityName" name="entityName" value="Ciudad" />
 			<input type="hidden" id="id" name="id" />
-			<div class="divLabel">Código:</div>
+			<div class="divLabel">ID:</div>
 			<div class="divField"><input value="<%=(CiudadFilter.getId() != null) ? CiudadFilter.getId() : ""%>" class="inputText" type="text" id="id" name="id" /></div>
-			<div class="divLabel">RUC:</div>
-			<div class="divField"><input value="<%=(CiudadFilter.getRuc() != null) ? CiudadFilter.getRuc() : ""%>" class="inputText" type="text" id="ruc" name="ruc" style="width:320px;" /></div>	
-			<div class="divLabel">Nombre:</div>
-			<div class="divField"><input value="<%=(CiudadFilter.getNombre() != null) ? CiudadFilter.getNombre() : ""%>" class="inputText" type="text" id="nombre" name="nombre" style="width:320px;" /></div>
+			<div class="divLabel">Descripcion:</div>
+			<div class="divField"><input value="<%=(CiudadFilter.getDescripcion() != null) ? CiudadFilter.getDescripcion() : ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>	
+			
 		</form>
 		<div class="divButtons">
 			<input type="button" class="button" value="Consultar" onclick="find();" />
@@ -85,14 +84,10 @@
 	<div class="divTable">
 		<table class="table" cellpadding="0" cellspacing="0">
 			<tr>
-				<th style="width:50px;">Código</th>
-				<th>RUC</th>
-				<th>Nombre</th>
-				<th>Fecha nacimiento</th>
-				<th>Direccion</th>
-				<th>Numero</th>
-				<th>Barrio</th>
-				<th>Ciudad</th>
+				<th style="width:50px;">ID</th>
+				<th>Descripcion</th>
+				
+		
 				<th style="width:50px;">&nbsp;</th>
 			</tr>
 <%
@@ -101,13 +96,8 @@
 %> 	
 			<tr>
 				<td><%=Ciudad.getId()%></td>
-				<td><%=Ciudad.getRuc()%></td>
-				<td><%=Ciudad.getNombre()%></td>
-				<td><%=Ciudad.getFechaNacimiento()%></td>
-				<td><%=Ciudad.getDireccion()%></td>
-				<td><%=Ciudad.getNumero()%></td>
-				<td><%=Ciudad.getBarrio()%></td>
-				<td><%=Ciudad.getCiudad()%></td>
+				<td><%=Ciudad.getDescripcion()%></td>
+				
 				<td style="text-align:center">
 					<img class="image" src="./img/miniDetail.gif" onclick="detail(<%=Ciudad.getId()%>);" />
 					<img class="image" src="./img/miniRemove.gif" onclick="removeRecord(<%=Ciudad.getId()%>);" />

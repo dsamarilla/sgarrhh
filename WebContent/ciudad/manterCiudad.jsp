@@ -69,22 +69,10 @@
 			<input type="hidden" id="newAction" name="newAction" />
 			<input type="hidden" id="entityName" name="entityName" value="Ciudad"/>
 			<input type="hidden" id="id" name="id" />
-			<div class="divLabel">Código:</div>
+			<div class="divLabel">ID:</div>
 			<div class="divField"><input value="<%=(Ciudad.getId() != null) ? Ciudad.getId() : ""%>" class="inputText" type="text" id="id" name="id" readonly/></div>
-			<div class="divLabel">RUC:</div>
-			<div class="divField"><input value="<%=(Ciudad.getRuc() != null) ? Ciudad.getRuc() : ""%>" class="inputText" type="text" id="ruc" name="ruc" style="width:320px;" /></div>
-			<div class="divLabel">Nombre:</div>
-			<div class="divField"><input value="<%=(Ciudad.getNombre() != null) ? Ciudad.getNombre() : ""%>" class="inputText" type="text" id="nombre" name="nombre" style="width:320px;" /></div>
-			<div class="divLabel">Fecha de nacimiento:</div>
-			<div class="divField"><input value="<%=(Ciudad.getFechaNacimiento() != null) ? Ciudad.getFechaNacimiento() : ""%>" class="inputText" type="text" id="fechaNacimiento" name="fechaNacimiento" style="width:320px;" /></div>
-			<div class="divLabel">Dirección:</div>
-			<div class="divField"><input value="<%=(Ciudad.getDireccion() != null) ? Ciudad.getDireccion() : ""%>" class="inputText" type="text" id="direccion" name="direccion" style="width:320px;" /></div>
-			<div class="divLabel">Numero:</div>
-			<div class="divField"><input value="<%=(Ciudad.getNumero() != null) ? Ciudad.getNumero() : ""%>" class="inputText" type="text" id="numero" name="numero" style="width:320px;" /></div>
-			<div class="divLabel">Barrio:</div>
-			<div class="divField"><input value="<%=(Ciudad.getBarrio() != null) ? Ciudad.getBarrio() : ""%>" class="inputText" type="text" id="barrio" name="barrio" style="width:320px;" /></div>
-			<div class="divLabel">Ciudad:</div>
-			<div class="divField"><input value="<%=(Ciudad.getCiudad() != null) ? Ciudad.getCiudad() : ""%>" class="inputText" type="text" id="ciudad" name="ciudad" style="width:320px;" /></div>
+			<div class="divLabel">Descripcion:</div>
+			<div class="divField"><input value="<%=(Ciudad.getDescripcion()() != null) ? Ciudad.getDescripcion() : ""%>" class="inputText" type="text" id="ruc" name="ruc" style="width:320px;" /></div>
 	
 		</form>
 		<div class="divButtons">
