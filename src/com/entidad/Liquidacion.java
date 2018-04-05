@@ -30,7 +30,7 @@ public class Liquidacion implements Serializable{
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="liq_idper")
-	private Persona idPersona;
+	private Persona persona;
 	@Column(name="liq_fecha")
 	private Date fecha;
 	@Column(name="liq_monto")
@@ -41,35 +41,35 @@ public class Liquidacion implements Serializable{
 	public Liquidacion() {
 		super();
 		this.id = 0;
-		this.idPersona = new Persona();
+		this.persona = new Persona();
 		this.fecha = new Date ();
 		this.monto = new Double(0);
 		this.observacion = "";
 	}
 
-	public Liquidacion(Integer id, Date fecha, Double monto,Persona idPersona, String observacion) {
+	public Liquidacion(Integer id, Date fecha, Double monto,Persona persona, String observacion) {
 		super();
 		this.id = id;
-		this.idPersona = idPersona;
+		this.persona = persona;
 		this.fecha = fecha;
 		this.monto = monto;
 		this.observacion = observacion;
 	}
 
-	public Integer getNumero() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setNumero(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Persona getidPersona() {
-		return idPersona;
+	public Persona getPersona() {
+		return persona;
 	}
 
-	public void setidPersona(Persona idPersona) {
-		this.idPersona = idPersona;
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
 	public Date getFecha() {
@@ -100,7 +100,7 @@ public class Liquidacion implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Liquidacion [numero=" + id + ", idPersona=" + idPersona + ", fecha=" + fecha + ", monto="
+		return "Liquidacion [id=" + id + ", persona=" + persona + ", fecha=" + fecha + ", monto="
 				+ monto + ", observacion=" + observacion + "]";
 	}
 

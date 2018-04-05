@@ -22,7 +22,7 @@ public class Nacionalidad {
 	public Integer getId() {
 		return id;
 	}
-	public void setCodigo(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getDescripcion() {

@@ -19,11 +19,11 @@ public class Haber implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="hab_nro")
-	private Integer numero;
+	@Column(name="hab_id")
+	private Integer id;
 	
 
-	@OneToMany(mappedBy="numeroHaber", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idHaber", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<HaberDetalle> haberdetalle;
 	
 	@Column(name="hab_monto")
@@ -34,33 +34,33 @@ public class Haber implements Serializable {
 	private String observacion;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="hab_codrubro")
-	private Rubro codigoRubro;
+	@JoinColumn(name="hab_idrubro")
+	private Rubro rubro;
 	
 	public Haber() {
 		super();
-		this.numero = 0;
+		this.id = 0;
 		this.monto = new Float(0);
 		this.fecha = new Date();
 		this.observacion = "";
-		this.codigoRubro= new Rubro();
+		this.rubro= new Rubro();
 	}
 
-	public Haber(Integer numero, Float monto, Date fecha, String observacion, Rubro codigoRubro) {
+	public Haber(Integer numero, Float monto, Date fecha, String observacion, Rubro rubro) {
 		super();
-		this.numero = numero;
+		this.id = numero;
 		this.monto = monto;
 		this.fecha = fecha;
 		this.observacion = observacion;
-		this.codigoRubro = codigoRubro;
+		this.rubro = rubro;
 	}
 
-	public Integer getNumero() {
-		return numero;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	
@@ -89,18 +89,18 @@ public class Haber implements Serializable {
 	}
 	
 
-	public Rubro getCodigoRubro() {
-		return codigoRubro;
+	public Rubro getRubro() {
+		return rubro;
 	}
 
-	public void setCodigoRubro(Rubro codigoRubro) {
-		this.codigoRubro = codigoRubro;
+	public void setRubro(Rubro rubro) {
+		this.rubro = rubro;
 	}
 
 	@Override
 	public String toString() {
-		return "Haber [numero=" + numero + ", monto=" + monto + ", fecha="
-				+ fecha + ", observacion=" + observacion + ", codigoRubro=" + codigoRubro + "]";
+		return "Haber [id=" + id + ", monto=" + monto + ", fecha="
+				+ fecha + ", observacion=" + observacion + ", rubro=" + rubro + "]";
 	}
 
 
