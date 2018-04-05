@@ -66,11 +66,9 @@ public class Main {
 		
 		Ciudad ciudad = new Ciudad();
 		ciudad.setId(3);
-			
-		//Ciudad ciudad = new Ciudad();
-//		ciudad.setIdciudad(2);
+
 		ciudad.setDescripcion("O");
-//		ciudad.setMarca(marca);
+
 		
 		Object list[] = SessionCiudad.find(ciudad);
 		for (int i = 0; i < list.length; i++) {

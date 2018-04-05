@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import py.edu.fpune.posgrado.annotation.Column;
-import py.edu.fpune.posgrado.annotation.DataType;
-import py.edu.fpune.posgrado.annotation.Transient;
+import annotation.Column;
+import annotation.DataType;
+import annotation.Transient;
 import util.ManejadorFecha;
 
 public class Factory {
