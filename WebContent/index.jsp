@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@page import="entity.Ciudad"%>
-<%@page import="session.SessionCiudad"%>
+<%@page import="entity.Usuario"%>
+<%@page import="session.SessionUsuario"%>
 <%
 	String message = (String) request.getAttribute("msg");
 %>
