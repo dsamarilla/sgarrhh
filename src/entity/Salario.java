@@ -1,6 +1,5 @@
-package com.entidad;
+package entity;
 
-import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -10,31 +9,37 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
-@Table(name="rhco_rubro")
-public class Rubro implements Serializable{
+@Table(name="rhco_salario")
+public class Salario {
 	
-	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="rub_id")
+	@Column(name="sal_id")
 	private Integer id;
+	
+	@OneToMany(mappedBy="idSalario", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<Contrato> contrato;
 		
-	@OneToMany(mappedBy="idRubro", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Collection<Haber> haber;
-	
-	
-	@Column(name="rub_des")
+	@Column(name="sal_des")
 	private String descripcion;
 	
-	public Rubro() {
+	@Column(name="sal_monto")
+	private Double monto;
+	
+	public Salario() {
 		super();
 		this.id = 0;
 		this.descripcion = "";	
+		this.monto = new Double(0);	
 		}
-	public Rubro(Integer id, String descripcion) {
+	
+	public Salario(Integer id, String descripcion, Double monto) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
+		this.monto= monto;
 	}
+
+		
 	public Integer getId() {
 		return id;
 	}
@@ -47,9 +52,15 @@ public class Rubro implements Serializable{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	public Double getMonto() {
+		return monto;
+	}
+	public void setMonto(Double monto) {
+		this.monto = monto;
+	}
 	@Override
 	public String toString() {
-		return "Rubro [id=" + id + ", descripcion=" + descripcion + "]";
+		return "Salario [id=" + id + ", descripcion=" + descripcion + ", monto=" + monto + "]";
 	}
 	
 	

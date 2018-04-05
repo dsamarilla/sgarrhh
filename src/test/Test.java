@@ -5,12 +5,11 @@ package test;
 
 import java.util.Date;
 
-import com.entidad.Concepto;
-import com.entidad.Liquidacion;
-import com.entidad.LiquidacionDetalle;
-import com.entidad.Persona;
-import com.entidad.TipoDocumento;
-
+import entity.Concepto;
+import entity.Liquidacion;
+import entity.LiquidacionDetalle;
+import entity.Persona;
+import entity.TipoDocumento;
 import sesion.SesionLiquidacion;
 import sesion.SesionPersona;
 

@@ -21,7 +21,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		<class>com.entidad.Funcion</class>
 	    <class>com.entidad.Cargo</class>
 	    <class>com.entidad.Departamento</class>
-	    <class>com.entidad.TipoDocumento</class>
+	    <class>com.entidad.Ausencia</class>
+	     <class>com.entidad.TipoAusencia</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sgrrhh_db"/>

@@ -1,4 +1,4 @@
-package com.entidad;
+package entity;
 
 import java.io.Serializable;
 import java.util.Collection;

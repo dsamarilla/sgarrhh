@@ -1,20 +1,13 @@
-package com.entidad;
+package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="rhrl_persona")
-public class Nacionalidad {
-	
+public class TipoEntradaSalida {
 	private Integer id;
 	private String descripcion;
-	public Nacionalidad() {
+	public TipoEntradaSalida() {
 		super();
 		this.id = 0;
-		this.descripcion = "";	
-		}
-	public Nacionalidad(Integer id, String descripcion) {
+		this.descripcion = "";	}
+	public TipoEntradaSalida(Integer id, String descripcion) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -33,8 +26,7 @@ public class Nacionalidad {
 	}
 	@Override
 	public String toString() {
-		return "Nacionalidad [id=" + id + ", descripcion=" + descripcion + "]";
+		return "TipoEntradaSalida [id=" + id + ", descripcion=" + descripcion + "]";
 	}
-	
 	
 }

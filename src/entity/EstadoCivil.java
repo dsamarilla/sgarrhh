@@ -1,14 +1,14 @@
-package com.entidad;
+package entity;
 
-public class Ciudad {
+public class EstadoCivil {
 	private Integer codigo;
 	private String descripcion;
-	public Ciudad() {
+	public EstadoCivil() {
 		super();
 		this.codigo = 0;
 		this.descripcion = "";	
 		}
-	public Ciudad(Integer codigo, String descripcion) {
+	public EstadoCivil(Integer codigo, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.descripcion = descripcion;
@@ -27,7 +27,7 @@ public class Ciudad {
 	}
 	@Override
 	public String toString() {
-		return "Ciudad [codigo=" + codigo + ", descripcion=" + descripcion + "]";
+		return "EstadoCivil [codigo=" + codigo + ", descripcion=" + descripcion + "]";
 	}
 	
 	

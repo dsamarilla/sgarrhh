@@ -1,13 +1,13 @@
-package com.entidad;
+package entity;
 
-public class TipoEntradaSalida {
+public class TipoAusencia {
 	private Integer id;
 	private String descripcion;
-	public TipoEntradaSalida() {
+	public TipoAusencia() {
 		super();
 		this.id = 0;
 		this.descripcion = "";	}
-	public TipoEntradaSalida(Integer id, String descripcion) {
+	public TipoAusencia(Integer id, String descripcion) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -26,7 +26,7 @@ public class TipoEntradaSalida {
 	}
 	@Override
 	public String toString() {
-		return "TipoEntradaSalida [id=" + id + ", descripcion=" + descripcion + "]";
+		return "TipoAusencia [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 	
 }

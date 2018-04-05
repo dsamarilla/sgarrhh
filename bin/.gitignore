@@ -1,8 +1,4 @@
-/com/
-/modelo/
-<<<<<<< HEAD
-=======
-/META-INF/
+/main/
+/session/
 /test/
-/sesion/
->>>>>>> 4554d43c2840e2309364c5a82f0da65c03883cc3
+/entity/

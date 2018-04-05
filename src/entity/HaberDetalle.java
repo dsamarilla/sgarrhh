@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.entidad;
+package entity;
 
 /**
  * @author cvargas

@@ -1,13 +1,20 @@
-package com.entidad;
+package entity;
 
-public class TipoAusencia {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="rhrl_persona")
+public class Nacionalidad {
+	
 	private Integer id;
 	private String descripcion;
-	public TipoAusencia() {
+	public Nacionalidad() {
 		super();
 		this.id = 0;
-		this.descripcion = "";	}
-	public TipoAusencia(Integer id, String descripcion) {
+		this.descripcion = "";	
+		}
+	public Nacionalidad(Integer id, String descripcion) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -26,7 +33,8 @@ public class TipoAusencia {
 	}
 	@Override
 	public String toString() {
-		return "TipoAusencia [id=" + id + ", descripcion=" + descripcion + "]";
+		return "Nacionalidad [id=" + id + ", descripcion=" + descripcion + "]";
 	}
+	
 	
 }
