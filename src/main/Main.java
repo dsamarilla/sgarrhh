@@ -2,9 +2,8 @@ package main;
 
 import java.lang.reflect.Method;
 
-import py.edu.fpune.posgrado.entity.Marca;
-import py.edu.fpune.posgrado.entity.Modelo;
-import session.SessionModelo;
+import entity.Ciudad;
+import session.SessionCiudad;
 
 
 public class Main {
@@ -63,23 +62,23 @@ public class Main {
 //			
 //		}
 		
-		SessionModelo sessionModelo = new SessionModelo();
+		SessionCiudad SessionCiudad = new SessionCiudad();
 		
-		Marca marca = new Marca();
-		marca.setIdMarca(3);
+		Ciudad ciudad = new Ciudad();
+		ciudad.setId(3);
 			
-		Modelo modelo = new Modelo();
-//		modelo.setIdModelo(2);
-		modelo.setDescripcion("O");
-//		modelo.setMarca(marca);
+		//Ciudad ciudad = new Ciudad();
+//		ciudad.setIdciudad(2);
+		ciudad.setDescripcion("O");
+//		ciudad.setMarca(marca);
 		
-		Object list[] = sessionModelo.find(modelo);
+		Object list[] = SessionCiudad.find(ciudad);
 		for (int i = 0; i < list.length; i++) {
-			Modelo m = (Modelo) list[i];
+			Ciudad m = (Ciudad) list[i];
 			System.out.println(m);
 		}
 		
-//		System.out.println(sessionModelo.detail(modelo));
+//		System.out.println(SessionCiudad.detail(ciudad));
 	}
 
 }
