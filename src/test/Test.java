@@ -10,8 +10,7 @@ import entity.Liquidacion;
 import entity.LiquidacionDetalle;
 import entity.Persona;
 import entity.TipoDocumento;
-import sesion.SesionLiquidacion;
-import sesion.SesionPersona;
+import session.SesionLiquidacion;
 
 public class Test {
 	
