@@ -4,53 +4,53 @@ import java.util.Date;
 
 public class Ausencia {
 	
-	private Integer cod;
-	private Persona codPersona;
+	private Integer id;
+	private Persona idPersona;
 	private Date fechaInicio;
 	private Date fechaFin;
     private String descripcion;
-    private TipoAusencia tipoAusencia;
+    private TipoAusencia idtipoAusencia;
 	
     
     public Ausencia() {
 		super();
-		this.cod = 0;
-		this.codPersona = new Persona();
+		this.id = 0;
+		this.idPersona = new Persona();
 		this.fechaInicio = new Date();
 		this.fechaFin = new Date();
 		this.descripcion = "";
-		this.tipoAusencia = new TipoAusencia();	}
+		this.idtipoAusencia = new TipoAusencia();	}
 
 
 	public Ausencia(Integer codigo, Persona codPersona, Date fechaInicio, Date fechaFin, String descripcion,
 			TipoAusencia tipoAusencia) {
 		super();
-		this.cod = codigo;
-		this.codPersona = codPersona;
+		this.id = codigo;
+		this.idPersona = codPersona;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.descripcion = descripcion;
-		this.tipoAusencia = tipoAusencia;
+		this.idtipoAusencia = tipoAusencia;
 	}
 
 
 	public Integer getCodigo() {
-		return cod;
+		return id;
 	}
 
 
 	public void setCodigo(Integer codigo) {
-		this.cod = codigo;
+		this.id = codigo;
 	}
 
 
 	public Persona getCodPersona() {
-		return codPersona;
+		return idPersona;
 	}
 
 
 	public void setCodPersona(Persona codPersona) {
-		this.codPersona = codPersona;
+		this.idPersona = codPersona;
 	}
 
 
@@ -85,19 +85,19 @@ public class Ausencia {
 
 
 	public TipoAusencia getTipoAusencia() {
-		return tipoAusencia;
+		return idtipoAusencia;
 	}
 
 
 	public void setTipoAusencia(TipoAusencia tipoAusencia) {
-		this.tipoAusencia = tipoAusencia;
+		this.idtipoAusencia = tipoAusencia;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Ausencia [codigo=" + cod + ", codPersona=" + codPersona + ", fechaInicio=" + fechaInicio
-				+ ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + ", tipoAusencia=" + tipoAusencia + "]";
+		return "Ausencia [codigo=" + id + ", codPersona=" + idPersona + ", fechaInicio=" + fechaInicio
+				+ ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + ", tipoAusencia=" + idtipoAusencia + "]";
 	}
     
 	
