@@ -82,7 +82,7 @@ public abstract class Controller {
 		Object objFilter = this.getFilterObject();
 		Object objId = this.getDeleteObject();
 		
-		Class <?> sessionClass = Class.forName("py.edu.fpune.posgrado.session.Session" + this.entityName);
+		Class <?> sessionClass = Class.forName("session.Session" + this.entityName);
 		Session session = (Session) sessionClass.newInstance();
 		Object objReturn = null;
 		try {

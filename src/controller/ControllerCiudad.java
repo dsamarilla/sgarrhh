@@ -10,12 +10,12 @@ public class ControllerCiudad extends Controller {
 
 	@Override
 	public void goNew() throws Exception {
-		request.setAttribute("nextPage","./ciudad/manterciudad.jsp");
+		request.setAttribute("nextPage","./ciudad/manterCiudad.jsp");
 	}
 
 	@Override
 	public void goFind() throws Exception {
-		request.setAttribute("nextPage","./ciudad/consultarciudad.jsp");		
+		request.setAttribute("nextPage","./ciudad/consultarCiudad.jsp");		
 	}
 
 	@Override
