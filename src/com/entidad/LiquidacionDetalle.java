@@ -25,12 +25,12 @@ public class LiquidacionDetalle implements Serializable{
 	
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="lqd_nroliquidacion")
-	private Liquidacion numeroLiquidacion;
+	@JoinColumn(name="lqd_idliquidacion")
+	private Liquidacion idLiquidacion;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="lqd_codconcepto")
-	private Concepto codigoConcepto;
+	@JoinColumn(name="lqd_idconcepto")
+	private Concepto idConcepto;
 
 	@Column(name="lqd_montoparcial")
 	private Double montoParcial;
@@ -38,15 +38,15 @@ public class LiquidacionDetalle implements Serializable{
 	public LiquidacionDetalle() {
 		super();
 		this.idLiquidacionDetalle =0;
-		this.codigoConcepto = new Concepto();
-		this.numeroLiquidacion = new Liquidacion();
+		this.idConcepto = new Concepto();
+		this.idLiquidacion = new Liquidacion();
 		this.montoParcial = new Double(0);
 	}
-	public LiquidacionDetalle(Integer idLiquidacionDetalle, Concepto codigoConcepto, Liquidacion numeroLiquidacion, Double montoParcial) {
+	public LiquidacionDetalle(Integer idLiquidacionDetalle, Concepto idConcepto, Liquidacion idLiquidacion, Double montoParcial) {
 		super();
 		this.idLiquidacionDetalle = idLiquidacionDetalle;
-		this.codigoConcepto = codigoConcepto;
-		this.numeroLiquidacion = numeroLiquidacion;
+		this.idConcepto = idConcepto;
+		this.idLiquidacion = idLiquidacion;
 		this.montoParcial = montoParcial;
 		
 	}
@@ -58,17 +58,17 @@ public class LiquidacionDetalle implements Serializable{
 	public void setIdLiquidacionDetalle(Integer idLiquidacionDetalle) {
 		this.idLiquidacionDetalle = idLiquidacionDetalle;
 	}
-	public Concepto getCodigoConcepto() {
-		return codigoConcepto;
+	public Concepto getidConcepto() {
+		return idConcepto;
 	}
-	public void setCodigoConcepto(Concepto codigoConcepto) {
-		this.codigoConcepto = codigoConcepto;
+	public void setidConcepto(Concepto idConcepto) {
+		this.idConcepto = idConcepto;
 	}
-	public Liquidacion getNumeroLiquidacion() {
-		return numeroLiquidacion;
+	public Liquidacion getidLiquidacion() {
+		return idLiquidacion;
 	}
-	public void setNumeroLiquidacion(Liquidacion numeroLiquidacion) {
-		this.numeroLiquidacion = numeroLiquidacion;
+	public void setidLiquidacion(Liquidacion idLiquidacion) {
+		this.idLiquidacion = idLiquidacion;
 	}
 	public Double getMontoParcial() {
 		return montoParcial;
@@ -78,7 +78,7 @@ public class LiquidacionDetalle implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "LiquidacionDetalle [codigoConcepto=" + codigoConcepto + ", numeroLiquidacion=" + numeroLiquidacion
+		return "LiquidacionDetalle [idConcepto=" + idConcepto + ", idLiquidacion=" + idLiquidacion
 				+ ", montoParcial=" + montoParcial + "]";
 	}
 	

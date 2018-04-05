@@ -12,35 +12,35 @@ import javax.persistence.Table;
 @Table(name="rhco_tipodocumento")
 public class TipoDocumento {
 	@Id
-	@Column(name="tdo_cod")
+	@Column(name="tdo_id")
 	//bi-directional many-to-one association to Pedido
 	
 	@OneToMany(mappedBy="persona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Integer codigo;
+	private Integer id;
 	
 	@Column(name="tdo_des")
 	private String descripcion;
 	
 	public TipoDocumento() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.descripcion = "";	
 		}
-	public TipoDocumento(Integer codigo) {
+	public TipoDocumento(Integer id) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion="";
 	}
-	public TipoDocumento(Integer codigo, String descripcion) {
+	public TipoDocumento(Integer id, String descripcion) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion = descripcion;
 	}
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -50,7 +50,7 @@ public class TipoDocumento {
 	}
 	@Override
 	public String toString() {
-		return "TipoDocumento [codigo=" + codigo + ", descripcion=" + descripcion + "]";
+		return "TipoDocumento [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 	
 	

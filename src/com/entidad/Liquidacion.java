@@ -22,15 +22,15 @@ public class Liquidacion implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="liq_nro")
-	private Integer numero;
+	@Column(name="liq_id")
+	private Integer id;
 	
-	@OneToMany(mappedBy="numeroLiquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
-	private Collection<LiquidacionDetalle> liquidaciondetalle;
+	@OneToMany(mappedBy="idLiquidacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	private Collection<LiquidacionDetalle> liquidacionDetalle;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="liq_codper")
-	private Persona codigoPersona;
+	@JoinColumn(name="liq_idper")
+	private Persona idPersona;
 	@Column(name="liq_fecha")
 	private Date fecha;
 	@Column(name="liq_monto")
@@ -40,36 +40,36 @@ public class Liquidacion implements Serializable{
 	
 	public Liquidacion() {
 		super();
-		this.numero = 0;
-		this.codigoPersona = new Persona();
+		this.id = 0;
+		this.idPersona = new Persona();
 		this.fecha = new Date ();
 		this.monto = new Double(0);
 		this.observacion = "";
 	}
 
-	public Liquidacion(Integer numero, Date fecha, Double monto,Persona codigoPersona, String observacion) {
+	public Liquidacion(Integer id, Date fecha, Double monto,Persona idPersona, String observacion) {
 		super();
-		this.numero = numero;
-		this.codigoPersona = codigoPersona;
+		this.id = id;
+		this.idPersona = idPersona;
 		this.fecha = fecha;
 		this.monto = monto;
 		this.observacion = observacion;
 	}
 
 	public Integer getNumero() {
-		return numero;
+		return id;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setNumero(Integer id) {
+		this.id = id;
 	}
 
-	public Persona getCodigoPersona() {
-		return codigoPersona;
+	public Persona getidPersona() {
+		return idPersona;
 	}
 
-	public void setCodigoPersona(Persona codigoPersona) {
-		this.codigoPersona = codigoPersona;
+	public void setidPersona(Persona idPersona) {
+		this.idPersona = idPersona;
 	}
 
 	public Date getFecha() {
@@ -100,7 +100,7 @@ public class Liquidacion implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Liquidacion [numero=" + numero + ", codigoPersona=" + codigoPersona + ", fecha=" + fecha + ", monto="
+		return "Liquidacion [numero=" + id + ", idPersona=" + idPersona + ", fecha=" + fecha + ", monto="
 				+ monto + ", observacion=" + observacion + "]";
 	}
 

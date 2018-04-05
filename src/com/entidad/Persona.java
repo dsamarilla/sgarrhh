@@ -17,23 +17,23 @@ public class Persona  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="per_cod")
-	private Integer codigo;
+	@Column(name="per_id")
+	private Integer id;
 	
-	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Liquidacion> liquidacion;
 	
-	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Bonificacion> bonificacion;
 	
 
 //	@OneToMany(mappedBy="ausencia", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 //	private Collection<Ausencia> ausencia;
 	
-	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Contrato> contrato;
 	
-	@OneToMany(mappedBy="codigoPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idPersona", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Descuento> descuento;
 //	
 //	@OneToMany(mappedBy="entradasalida", cascade={CascadeType.PERSIST}, orphanRemoval=true)
@@ -69,15 +69,15 @@ public class Persona  implements Serializable{
 	//bi-directional many-to-one association to Pedido
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="per_codtpdocu")
-	private TipoDocumento tipodocumento;
+	@JoinColumn(name="per_idtpdocu")
+	private TipoDocumento tipoDocumento;
 	
 	
 	@Column(name="per_imagen")
 	private byte[] imagen;
 	public Persona() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.documento = "";
 		this.nombre = "";
 		this.apellido = "";
@@ -91,14 +91,14 @@ public class Persona  implements Serializable{
 		this.email = "";
 		this.observacion = "";
 		this.estado = "";
-		this.tipodocumento = new TipoDocumento();
+		this.tipoDocumento = new TipoDocumento();
 		this.imagen=null;
 	}
-	public Persona(Integer codigo, String documento, String nombre, String apellido, Date fec_nacimiento,
+	public Persona(Integer id, String documento, String nombre, String apellido, Date fec_nacimiento,
 			String nacionalidad, String domicilio, String ciudad, String estadoCivil, String sexo,
 			String telefono, String email, String observacion, String estado, TipoDocumento tipoDocumento,byte[] imagen) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.documento = documento;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -112,14 +112,14 @@ public class Persona  implements Serializable{
 		this.email = email;
 		this.observacion = observacion;
 		this.estado = estado;
-		this.tipodocumento = tipoDocumento;
+		this.tipoDocumento = tipoDocumento;
 		this.imagen=imagen;
 	}
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getDocumento() {
 		return documento;
@@ -200,10 +200,10 @@ public class Persona  implements Serializable{
 		this.estado = estado;
 	}
 	public TipoDocumento getTipoDocumento() {
-		return tipodocumento;
+		return tipoDocumento;
 	}
 	public void setTipoDocumento(TipoDocumento tipoDocumento) {
-		this.tipodocumento = tipoDocumento;
+		this.tipoDocumento = tipoDocumento;
 	}
 	
 	public byte[] getImagen() {
@@ -214,11 +214,11 @@ public class Persona  implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Persona [codigo=" + codigo + ", documento=" + documento + ", nombre=" + nombre + ", apellido="
+		return "Persona [codigo=" + id + ", documento=" + documento + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", fec_nacimiento=" + fec_nacimiento + ", nacionalidad=" + nacionalidad + ", domicilio="
 				+ domicilio + ", ciudad=" + ciudad + ", estadoCivil=" + estadoCivil + ", sexo=" + sexo + ", telefono="
 				+ telefono + ", email=" + email + ", observacion=" + observacion + ", estado=" + estado
-				+ ", tipoDocumento=" + tipodocumento + "]";
+				+ ", tipoDocumento=" + tipoDocumento + "]";
 	}
 	
 	

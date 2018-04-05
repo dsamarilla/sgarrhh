@@ -14,10 +14,10 @@ import javax.persistence.Table;
 public class TipoBonificacion {
 	
 	@Id
-	@Column(name="tbon_cod")
-	private Integer codigo;
+	@Column(name="tbon_id")
+	private Integer id;
 	
-	@OneToMany(mappedBy="codigoTipoBonificacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idTipoBonificacion", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Bonificacion> bonificacion;
 	
 	@Column(name="tbon_des")
@@ -28,24 +28,24 @@ public class TipoBonificacion {
 	
 	public TipoBonificacion() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.descripcion = "";
 		this.porcentaje = new Float(0);
 	}
 
-	public TipoBonificacion(Integer codigo, String descripcion, Float porcentaje) {
+	public TipoBonificacion(Integer id, String descripcion, Float porcentaje) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion = descripcion;
 		this.porcentaje = porcentaje;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setCodigo(Integer id) {
+		this.id = id;
 	}
 
 	public String getDescripcion() {
@@ -66,7 +66,7 @@ public class TipoBonificacion {
 
 	@Override
 	public String toString() {
-		return "TipoBonificacion[codigo=" + codigo + ", descripcion=" + descripcion + ", porcentaje=" + porcentaje + "]";
+		return "TipoBonificacion[codigo=" + id + ", descripcion=" + descripcion + ", porcentaje=" + porcentaje + "]";
 	}
 
 	

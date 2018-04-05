@@ -1,22 +1,22 @@
 package com.entidad;
 
 public class TipoEntradaSalida {
-	private Integer codigo;
+	private Integer id;
 	private String descripcion;
 	public TipoEntradaSalida() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.descripcion = "";	}
-	public TipoEntradaSalida(Integer codigo, String descripcion) {
+	public TipoEntradaSalida(Integer id, String descripcion) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion = descripcion;
 	}
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -26,7 +26,7 @@ public class TipoEntradaSalida {
 	}
 	@Override
 	public String toString() {
-		return "TipoEntradaSalida [codigo=" + codigo + ", descripcion=" + descripcion + "]";
+		return "TipoEntradaSalida [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 	
 }

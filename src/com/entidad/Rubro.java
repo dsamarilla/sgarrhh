@@ -15,10 +15,10 @@ public class Rubro implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="rub_cod")
-	private Integer codigo;
+	@Column(name="rub_id")
+	private Integer id;
 		
-	@OneToMany(mappedBy="codigoRubro", cascade={CascadeType.PERSIST}, orphanRemoval=true)
+	@OneToMany(mappedBy="idRubro", cascade={CascadeType.PERSIST}, orphanRemoval=true)
 	private Collection<Haber> haber;
 	
 	
@@ -27,19 +27,19 @@ public class Rubro implements Serializable{
 	
 	public Rubro() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.descripcion = "";	
 		}
-	public Rubro(Integer codigo, String descripcion) {
+	public Rubro(Integer id, String descripcion) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion = descripcion;
 	}
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -49,7 +49,7 @@ public class Rubro implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Rubro [codigo=" + codigo + ", descripcion=" + descripcion + "]";
+		return "Rubro [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 	
 	

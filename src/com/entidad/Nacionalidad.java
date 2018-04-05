@@ -7,23 +7,23 @@ import javax.persistence.Table;
 @Table(name="rhrl_persona")
 public class Nacionalidad {
 	
-	private Integer codigo;
+	private Integer id;
 	private String descripcion;
 	public Nacionalidad() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.descripcion = "";	
 		}
-	public Nacionalidad(Integer codigo, String descripcion) {
+	public Nacionalidad(Integer id, String descripcion) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion = descripcion;
 	}
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setCodigo(Integer id) {
+		this.id = id;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -33,7 +33,7 @@ public class Nacionalidad {
 	}
 	@Override
 	public String toString() {
-		return "Nacionalidad [codigo=" + codigo + ", descripcion=" + descripcion + "]";
+		return "Nacionalidad [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 	
 	

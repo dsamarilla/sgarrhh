@@ -29,28 +29,28 @@ public class HaberDetalle implements Serializable{
 
 	
 	@Id
-	@Column(name="had_nro")
-	private Integer numero;
+	@Column(name="had_id")
+	private Integer id;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="had_nrohaber")
-	private Haber numeroHaber;
+	@JoinColumn(name="had_idhaber")
+	private Haber idHaber;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="had_codconcep")
-	private Concepto codigoConcepto;
+	@JoinColumn(name="had_idconcep")
+	private Concepto idConcepto;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="had_nroliq")
-	private Liquidacion numeroLiquidacion;
+	@JoinColumn(name="had_idliq")
+	private Liquidacion idLiquidacion;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="had_coddescue")
-	private Descuento codigoDescuento;
+	@JoinColumn(name="had_iddescue")
+	private Descuento idDescuento;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="had_codboni")
-	private Bonificacion codigoBonificacion;
+	@JoinColumn(name="had_idboni")
+	private Bonificacion idBonificacion;
 	
 	
 	
@@ -58,71 +58,71 @@ public class HaberDetalle implements Serializable{
 		// TODO Auto-generated constructor stub
 		
 		super();
-		this.numeroHaber = new Haber();
-		this.codigoConcepto = new Concepto();
-		this.numeroLiquidacion = new Liquidacion();
-		this.codigoDescuento = new Descuento() ;
-		this.codigoBonificacion = new Bonificacion();
+		this.idHaber = new Haber();
+		this.idConcepto = new Concepto();
+		this.idLiquidacion = new Liquidacion();
+		this.idDescuento = new Descuento() ;
+		this.idBonificacion = new Bonificacion();
 		
 	}
 
-	public HaberDetalle(Haber numeroHaber, Concepto codigoConcepto, Liquidacion numeroLiquidacion,
-			Descuento codigoDescuento, Bonificacion codigoBonificacion) {
+	public HaberDetalle(Haber idHaber, Concepto idConcepto, Liquidacion idLiquidacion,
+			Descuento idDescuento, Bonificacion idBonificacion) {
 		super();
-		this.numeroHaber = numeroHaber;
-		this.codigoConcepto = codigoConcepto;
-		this.numeroLiquidacion = numeroLiquidacion;
-		this.codigoDescuento = codigoDescuento;
-		this.codigoBonificacion = codigoBonificacion;
+		this.idHaber = idHaber;
+		this.idConcepto = idConcepto;
+		this.idLiquidacion = idLiquidacion;
+		this.idDescuento = idDescuento;
+		this.idBonificacion = idBonificacion;
 	}
 
 	
 
-	public Haber getNumeroHaber() {
-		return numeroHaber;
+	public Haber getidHaber() {
+		return idHaber;
 	}
 
-	public void setNumeroHaber(Haber numeroHaber) {
-		this.numeroHaber = numeroHaber;
+	public void setidHaber(Haber idHaber) {
+		this.idHaber = idHaber;
 	}
 
-	public Concepto getCodigoConcepto() {
-		return codigoConcepto;
+	public Concepto getidConcepto() {
+		return idConcepto;
 	}
 
-	public void setCodigoConcepto(Concepto codigoConcepto) {
-		this.codigoConcepto = codigoConcepto;
+	public void setidConcepto(Concepto idConcepto) {
+		this.idConcepto = idConcepto;
 	}
 
-	public Liquidacion getNumeroLiquidacion() {
-		return numeroLiquidacion;
+	public Liquidacion getidLiquidacion() {
+		return idLiquidacion;
 	}
 
-	public void setNumeroLiquidacion(Liquidacion numeroLiquidacion) {
-		this.numeroLiquidacion = numeroLiquidacion;
+	public void setidLiquidacion(Liquidacion idLiquidacion) {
+		this.idLiquidacion = idLiquidacion;
 	}
 
-	public Descuento getCodigoDescuento() {
-		return codigoDescuento;
+	public Descuento getidDescuento() {
+		return idDescuento;
 	}
 
-	public void setCodigoDescuento(Descuento codigoDescuento) {
-		this.codigoDescuento = codigoDescuento;
+	public void setidDescuento(Descuento idDescuento) {
+		this.idDescuento = idDescuento;
 	}
 
-	public Bonificacion getCodigoBonificacion() {
-		return codigoBonificacion;
+	public Bonificacion getidBonificacion() {
+		return idBonificacion;
 	}
 
-	public void setCodigoBonificacion(Bonificacion codigoBonificacion) {
-		this.codigoBonificacion = codigoBonificacion;
+	public void setidBonificacion(Bonificacion idBonificacion) {
+		this.idBonificacion = idBonificacion;
 	}
 
 	@Override
 	public String toString() {
-		return "HaberDetalle [numero=" + numeroHaber + ", codigoConcepto=" + codigoConcepto + ", numeroLiquidacion="
-				+ numeroLiquidacion + ", codigoDescuento=" + codigoDescuento + ", codigoBonificacion="
-				+ codigoBonificacion + "]";
+		return "HaberDetalle [numero=" + idHaber + ", idConcepto=" + idConcepto + ", idLiquidacion="
+				+ idLiquidacion + ", idDescuento=" + idDescuento + ", idBonificacion="
+				+ idBonificacion + "]";
 	}
     
 	

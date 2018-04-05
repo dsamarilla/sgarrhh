@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Table(name="rhco_tipodescuento")
 public class TipoDescuento {
 	@Id
-	@Column(name="tdes_cod")
-	private Integer codigo;
+	@Column(name="tdes_id")
+	private Integer id;
 	
 		
 	@OneToMany(mappedBy="tipoDescuento", cascade={CascadeType.PERSIST}, orphanRemoval=true)
@@ -27,24 +27,24 @@ public class TipoDescuento {
 	
 	public TipoDescuento() {
 		super();
-		this.codigo = 0;
+		this.id = 0;
 		this.descripcion = "";
 		this.porcentaje = new Float(0);
 	}
 
-	public TipoDescuento(Integer codigo, String descripcion, Float porcentaje) {
+	public TipoDescuento(Integer id, String descripcion, Float porcentaje) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.descripcion = descripcion;
 		this.porcentaje = porcentaje;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getDescripcion() {
@@ -65,7 +65,7 @@ public class TipoDescuento {
 
 	@Override
 	public String toString() {
-		return "TipoDescuento [codigo=" + codigo + ", descripcion=" + descripcion + ", porcentaje=" + porcentaje + "]";
+		return "TipoDescuento [id=" + id + ", descripcion=" + descripcion + ", porcentaje=" + porcentaje + "]";
 	}
 
 	
